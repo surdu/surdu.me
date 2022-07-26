@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export function Meta() {
+export default function Meta() {
   return (
     <Head>
       <link

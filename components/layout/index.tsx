@@ -1,12 +1,12 @@
-import { Footer } from "./footer";
-import { Header } from "./header";
-import { Meta } from "./meta";
+import Header from "./Header";
+import Footer from "./Footer";
+import Meta from "./Meta";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-export function Layout({ children }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Meta />
