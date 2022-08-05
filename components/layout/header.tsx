@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import ThemeToggle from "~/components/ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
 
@@ -8,17 +10,24 @@ export default function Header() {
       <nav className={styles.nav}>
         <ul>
           <li>
-            <a href="/blog">Blog</a>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
           </li>
           <li>
-            <a href="/Projects">Projects</a>
+            <Link href="/projects">
+              <a>Projects</a>
+            </Link>
           </li>
           <li>
-            <a href="/Projects">About</a>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
           </li>
         </ul>
       </nav>
       <div className={styles.toggleWrap}>
+        Twitter | RSS
         <ThemeToggle />
       </div>
     </header>

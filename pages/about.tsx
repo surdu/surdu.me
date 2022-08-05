@@ -1,5 +1,9 @@
 import Layout from "~/components/Layout";
 
 export default function Home() {
-  return <Layout>Welcome!</Layout>;
+  return (
+    <Layout>
+      <h1>About me</h1>
+    </Layout>
+  );
 }
