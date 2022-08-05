@@ -1,15 +1,13 @@
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
-import { remark } from "remark";
-import html from "remark-html";
 
 const postsDirectory = join(process.cwd(), "_content/posts");
 
 export interface Post {
   title: string;
   url: string;
-  content: string;
+  markdown: string;
   date: number;
 }
 
@@ -18,7 +16,6 @@ export async function getPost(filename: string): Promise<Post> {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const htmlContent = await remark().use(html).process(content);
   const fileParts = filename.split(".").slice(0, -1).join(".").split("-");
   const dateParts = fileParts.slice(0, 3);
   const postDate = Date.parse(dateParts.join("-"));
@@ -26,7 +23,7 @@ export async function getPost(filename: string): Promise<Post> {
 
   return {
     title: data.title,
-    content: htmlContent.toString(),
+    markdown: content,
     url: postUrl,
     date: postDate,
   };

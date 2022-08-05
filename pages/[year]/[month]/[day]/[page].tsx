@@ -1,5 +1,8 @@
 import Layout from "~/components/Layout";
+import Markdown from "markdown-to-jsx";
 import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
+import Warning from "~/components/Warning";
+import Code from "~/components/Code";
 
 interface BlogPostProps {
   post: Post;
@@ -13,7 +16,16 @@ export default function BlogPost({ post }: BlogPostProps) {
     <Layout>
       <h1>{post.title}</h1>
       <div>Published {date}</div>
-      <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
+      <Markdown
+        options={{
+          overrides: {
+            warn: Warning,
+            code: Code,
+          },
+        }}
+      >
+        {post.markdown}
+      </Markdown>
     </Layout>
   );
 }
