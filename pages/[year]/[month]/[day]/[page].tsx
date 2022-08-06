@@ -1,31 +1,22 @@
 import Layout from "~/components/Layout";
-import Markdown from "markdown-to-jsx";
 import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
 import Warning from "~/components/Warning";
 import Code from "~/components/Code";
+import Markdown from "~/components/Markdown";
 
 interface BlogPostProps {
   post: Post;
 }
 
 export default function BlogPost({ post }: BlogPostProps) {
-  const date = new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format(
+  const date = new Intl.DateTimeFormat("en-us", { dateStyle: "long" }).format(
     new Date(post.date)
   );
   return (
     <Layout>
       <h1>{post.title}</h1>
       <div>Published {date}</div>
-      <Markdown
-        options={{
-          overrides: {
-            warn: Warning,
-            code: Code,
-          },
-        }}
-      >
-        {post.markdown}
-      </Markdown>
+      <Markdown>{post.markdown}</Markdown>
     </Layout>
   );
 }

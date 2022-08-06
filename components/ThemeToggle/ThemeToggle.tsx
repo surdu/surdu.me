@@ -1,3 +1,7 @@
+import useDarkTheme from "~/components/ThemeToggle/useDarkTheme";
+
 export default function ThemeToggle() {
-  return <div>Toggle</div>;
+  const { darkTheme, toggleDarkMode } = useDarkTheme();
+
+  return <div onClick={toggleDarkMode}>{darkTheme ? "Light" : "Dark"}</div>;
 }

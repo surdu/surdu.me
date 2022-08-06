@@ -10,7 +10,14 @@ export default function Code({ children, className }: CodeProps) {
 
   if (language) {
     return (
-      <SyntaxHighlighter language={language}>{children}</SyntaxHighlighter>
+      <SyntaxHighlighter
+        language={language}
+        className={`language-${language}`}
+        useInlineStyles={false}
+        codeTagProps={{ style: {} }}
+      >
+        {children}
+      </SyntaxHighlighter>
     );
   } else {
     return <code>{children}</code>;

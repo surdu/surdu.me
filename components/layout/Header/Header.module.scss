@@ -1,5 +1,3 @@
-@use "~/styles/colors";
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -20,7 +18,11 @@
 
       a {
         text-decoration: none;
-        color: colors.$text-color;
+        color: var(--text-color);
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
     }
   }
