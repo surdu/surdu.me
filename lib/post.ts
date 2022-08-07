@@ -7,8 +7,9 @@ const postsDirectory = join(process.cwd(), "_content/posts");
 export interface Post {
   title: string;
   url: string;
-  markdown: string;
   date: number;
+  markdown: string;
+  synopsis: string;
 }
 
 export async function getPost(filename: string): Promise<Post> {
@@ -18,14 +19,17 @@ export async function getPost(filename: string): Promise<Post> {
 
   const fileParts = filename.split(".").slice(0, -1).join(".").split("-");
   const dateParts = fileParts.slice(0, 3);
-  const postDate = Date.parse(dateParts.join("-"));
-  const postUrl = `${dateParts.join("/")}/${fileParts.slice(3).join("-")}.html`;
+  const date = Date.parse(dateParts.join("-"));
+  const url = `${dateParts.join("/")}/${fileParts.slice(3).join("-")}.html`;
+
+  const synopsis = content.trim().split("\n")[0];
 
   return {
     title: data.title,
+    url,
+    date,
     markdown: content,
-    url: postUrl,
-    date: postDate,
+    synopsis,
   };
 }
 

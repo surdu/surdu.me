@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Layout from "~/components/Layout";
+import Markdown from "~/components/Markdown";
 import { getAllPosts, Post } from "~/lib/post";
 
 interface BlogProps {
@@ -16,6 +17,9 @@ export default function Blog({ posts }: BlogProps) {
               <a>{post.title}</a>
             </Link>
           </h2>
+          <p>
+            <Markdown>{post.synopsis}</Markdown>
+          </p>
         </div>
       ))}
     </Layout>

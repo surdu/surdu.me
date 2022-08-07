@@ -1,6 +1,7 @@
 ---
 title:  "How Does Shazam Work ?"
 meta_image: /assets/images/shazam/1.png
+tags: [web]
 ---
 
 What is Shazam, you may ask ? Let’s say you’re in a bar, and they play a song that you like and you don’t know its name ? Shazam can help you find out what is the name of that song.

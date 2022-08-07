@@ -1,5 +1,6 @@
 ---
 title:  "Automate Building GitHub Pages That Use Jekyll Plugins"
+tags: [web,devops]
 ---
 
 As of the writing of this article, this blog's content is generated using [Jekyll](https://jekyllrb.com/) and hosted on [GitHub Pages](https://pages.github.com/). Until recently all was well: I pushed my code to the `master` branch on my website's repository and GitHub took care of generating the website for me using Jekyll. All this changed when I started needing to use a custom Jekyll plugin, as GitHub Pages don't support custom plugins due to security concerns.

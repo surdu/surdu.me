@@ -1,6 +1,6 @@
 ---
 title:  "Use DigitalOcean as Dynamic DNS"
-tags: [web]
+tags: [web,devops]
 ---
 
 I have a server at my home on which I host various test projects and I needed a dynamic DNS service as my ISP assigns me an IP dynamically. Tried some dynamic DNS services, but their domain names tend to get long, and I don't like typing URLS. So I decided to buy a domain and handle the DNS update myself.
