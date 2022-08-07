@@ -1,4 +1,7 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { clsx } from "clsx";
+
+import styles from "./Code.module.scss";
 
 interface CodeProps {
   children: string;
@@ -12,7 +15,7 @@ export default function Code({ children, className }: CodeProps) {
     return (
       <SyntaxHighlighter
         language={language}
-        className={`language-${language}`}
+        className={clsx(`language-${language}`, styles.code)}
         useInlineStyles={false}
         codeTagProps={{ style: {} }}
       >
@@ -20,6 +23,6 @@ export default function Code({ children, className }: CodeProps) {
       </SyntaxHighlighter>
     );
   } else {
-    return <code>{children}</code>;
+    return <code className={styles.inlineCode}>{children}</code>;
   }
 }

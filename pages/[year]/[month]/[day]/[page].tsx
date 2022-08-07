@@ -1,7 +1,7 @@
+import styles from "./BlogPage.module.scss";
+
 import Layout from "~/components/Layout";
 import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
-import Warning from "~/components/Warning";
-import Code from "~/components/Code";
 import Markdown from "~/components/Markdown";
 
 interface BlogPostProps {
@@ -9,14 +9,16 @@ interface BlogPostProps {
 }
 
 export default function BlogPost({ post }: BlogPostProps) {
-  const date = new Intl.DateTimeFormat("en-us", { dateStyle: "long" }).format(
+  const date = new Intl.DateTimeFormat("en-uk", { dateStyle: "medium" }).format(
     new Date(post.date)
   );
   return (
     <Layout>
-      <h1>{post.title}</h1>
-      <div>Published {date}</div>
-      <Markdown>{post.markdown}</Markdown>
+      <h1 className={styles.title}>{post.title}</h1>
+      <div className={styles.date}>{date}</div>
+      <article className={styles.article}>
+        <Markdown>{post.markdown}</Markdown>
+      </article>
     </Layout>
   );
 }

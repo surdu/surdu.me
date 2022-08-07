@@ -1,3 +1,5 @@
+import styles from "./Layout.module.scss";
+
 import Header from "./Header/Header";
 import Footer from "./Footer";
 import Meta from "./Meta";
@@ -11,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Meta />
       <Header />
-      <main>{children}</main>
+      <main className={styles.main}>{children}</main>
       <Footer />
     </>
   );

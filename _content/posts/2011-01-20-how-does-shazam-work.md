@@ -14,7 +14,7 @@ So, how does it manage to do this? *Avery Li-Chun Wang*, chief scientist and co-
 In the next lines I will try to explain in simple terms what I understood from that paper.
 
 
-### How to fingerprint a song
+## How to fingerprint a song
 
 First they generate a [spectrogram](https://en.wikipedia.org/wiki/Spectrogram) for the song. The spectrogram is a 3 dimensions graph. On the horizontal (`X`) axis, you have the time. On the vertical (`Y`) axis you have the frequency. The third dimension is represented by color intensity and it denotes the amplitude of a certain frequency.
 
@@ -42,7 +42,7 @@ Now, for each point in the target zone, they will create a [hash](https://en.wik
 
 After this, they will store each hash generated like this in the database.
 
-### Detecting the song
+## Detecting the song
 
 They first repeat the same fingerprinting also to the recorded sample. Each hash generated from the sample sound, will be searched for a match in the database.
 

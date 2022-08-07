@@ -4,22 +4,35 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   text-rendering: optimizeLegibility;
 }
 
 html, body ,pre, code {
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color, color, border-color;
+  transition-duration: 0.3s;
 }
-
 
 html {
   font-size:62.5%;
 }
 
 body {
-  font-size: 1.6rem;
-  padding: 5rem;
+  font-size: 1.9rem;
+  padding: 2rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

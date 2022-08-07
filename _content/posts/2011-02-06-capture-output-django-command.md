@@ -8,7 +8,15 @@ The documentation is very slim when it talks about [how to call a Django command
 
 The solution to capturing the output of the command being called is passing to `call_command` an argument called `stdout` to which you assign where the output is written (a file or any bite stream). Here is an example:
 
-<script src="https://gist.github.com/surdu/5db721a9970b3e59af82af932d73c4d1.js"></script>
+```python
+from django.core.management import call_command
+from StringIO import StringIO
+
+content = StringIO()
+call_command("dumpdata", stdout=content)
+content.seek(0)
+print content.read()
+```
 
 In the above example we call `python manage.py dumpdata`, which will output all the data from all the models in all the installed apps from the current project in form of a JSON.
 

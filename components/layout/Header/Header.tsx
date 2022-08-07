@@ -6,7 +6,9 @@ import styles from "./Header.module.scss";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <img src="/logo.gif" alt="Logo" className={styles.logo} />
+      <div className={styles.logo}>
+        <img src="/logo.gif" alt="Logo" />
+      </div>
       <nav className={styles.nav}>
         <ul>
           <li>

@@ -1,5 +1,6 @@
 import MarkdownJSX from "markdown-to-jsx";
-import Code from "~/components/Code";
+import Code from "~/components/Code/Code";
+import CodePen from "~/components/CodePen";
 import Warning from "~/components/Warning";
 
 interface MarkdownProps {
@@ -13,6 +14,7 @@ export default function Markdown({ children }: MarkdownProps) {
         overrides: {
           warn: Warning,
           code: Code,
+          codepen: CodePen,
         },
       }}
     >

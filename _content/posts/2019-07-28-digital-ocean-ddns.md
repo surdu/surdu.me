@@ -34,7 +34,26 @@ Now let's write a bash script that will update DigitalOcean's DNS records with o
 
 Create a file called `update-dns.sh` with the following contents:
 
-<gist id="gist-aa01a6093a52b3fc7f6e91852beb9b69" data-file="update-ddns.sh"></gist>
+```bash
+#!/bin/sh
+
+ACCESS_TOKEN=#YOUR_TOKEN
+DOMAIN=#YOUR-DOMAIN
+RECORD_IDS=#(RECORD_ID_1 RECORD_ID_2 RECORD_ID_n)
+
+IP=$(curl -s http://checkip.amazonaws.com/)
+
+for ID in "${RECORD_IDS[@]}"
+do
+  curl \
+    -fs -o /dev/null \
+    -X PUT \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $ACCESS_TOKEN" \
+    -d "{\"data\":\"$IP\"}" \
+    "https://api.digitalocean.com/v2/domains/$DOMAIN/records/$ID"
+done
+```
 
 After you created the file, let's give it execution rights by executing the following in your terminal:
 
@@ -46,25 +65,33 @@ Now let's go step by step and see what we need to change and what the script act
 
 The things we need to change are at the top of the file. We'll start by changing line 3 where we need to add the access token that we generated above in step 1 on DigitalOcean. Should look something like this:
 
-<gist
-	id="gist-aa01a6093a52b3fc7f6e91852beb9b69"
-	data-file="update-ddns-filled.sh"
-	data-line="3"
-	data-showFooter="false">
-</gist>
+```bash
+ACCESS_TOKEN=3u2c62u1z51j7djilw58wt04220vqbuzud6z5o2xahz4k8ufxj7eejg2w2trjxma
+```
 
 Next thing to change it's pretty straight forward: at line 4, set the domain for which to update the DNS records. In our example, this is `example.com`.
 
-<gist
-	id="gist-aa01a6093a52b3fc7f6e91852beb9b69"
-	data-file="update-ddns-filled.sh"
-	data-line="4"
-	data-showFooter="false">
-</gist>
+```bash
+DOMAIN=example.com
+```
 
 Lastly, we'll need to tell our script what are the ids for the DNS records. For this, we'll use this little script to list all our DigitalOcean DNS records for our domain:
 
-<gist id="gist-aa01a6093a52b3fc7f6e91852beb9b69" data-file="get_dns.sh"></gist>
+```bash
+#!/bin/sh
+
+ACCESS_TOKEN=3u2c62u1z51j7djilw58wt04220vqbuzud6z5o2xahz4k8ufxj7eejg2w2trjxma
+DOMAIN=example.com
+
+response=$(curl \
+  --silent \
+  -X GET \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $ACCESS_TOKEN" \
+  "https://api.digitalocean.com/v2/domains/$DOMAIN/records")
+
+echo $response | grep -Eo '"id":\d*|"type":"\w*"|"data":".*?"'
+```
 
 At the top of this script, just change the `ACCESS_TOKEN` and `DOMAIN` to match our initial script.
 
@@ -72,41 +99,76 @@ The output of this script will be groups of three key/value pairs: the `id` of t
 
 This is the output for our example:
 
-<gist id="gist-aa01a6093a52b3fc7f6e91852beb9b69" data-file="get_dns_output.txt"></gist>
+```txt
+"id":76145669
+"type":"SOA"
+"data":"1800"
+"id":76145670
+"type":"NS"
+"data":"ns1.digitalocean.com"
+"id":76145671
+"type":"NS"
+"data":"ns2.digitalocean.com"
+"id":76145673
+"type":"NS"
+"data":"ns3.digitalocean.com"
+"id":76145698
+"type":"A"
+"data":"192.168.1.1"
+"id":76145705
+"type":"A"
+"data":"192.168.1.1"
+```
 
 From this, we only care about the `id` of our `A` DNS records. From the above output we can determine that those IDs are `76145698` and `76145705`. So we change our initial script accordingly:
 
-<gist
-	id="gist-aa01a6093a52b3fc7f6e91852beb9b69"
-	data-file="update-ddns-filled.sh"
-	data-line="5"
-	data-showFooter="false">
-</gist>
+```txt
+RECORD_IDS=(76145698 76145705)
+```
 
 Our DNS update script should be looking like this:
 
-<gist
-	id="gist-aa01a6093a52b3fc7f6e91852beb9b69"
-	data-file="update-ddns-filled.sh">
-</gist>
+```bash
+#!/bin/sh
+
+ACCESS_TOKEN=3u2c62u1z51j7djilw58wt04220vqbuzud6z5o2xahz4k8ufxj7eejg2w2trjxma
+DOMAIN=example.com
+RECORD_IDS=(76145698 76145705)
+
+IP=$(curl -s http://checkip.amazonaws.com/)
+
+for ID in "${RECORD_IDS[@]}"
+do
+  curl \
+    -fs -o /dev/null \
+    -X PUT \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $ACCESS_TOKEN" \
+    -d "{\"data\":\"$IP\"}" \
+    "https://api.digitalocean.com/v2/domains/$DOMAIN/records/$ID"
+done
+```
 
 As for what the script actually does:
 
-<gist
-	id="gist-aa01a6093a52b3fc7f6e91852beb9b69"
-	data-file="update-ddns-filled.sh"
-	data-line="7"
-	data-showFooter="false">
-</gist>
+```bash
+IP=$(curl -s http://checkip.amazonaws.com/)
+```
 
 The above gets your current IP using an Amazon AWS service. For alternative services, you can consult [this list on OpenWRT](https://openwrt.org/docs/guide-user/services/ddns/client#detecting_public_ip).
 
-<gist
-	id="gist-aa01a6093a52b3fc7f6e91852beb9b69"
-	data-file="update-ddns-filled.sh"
-	data-line="9-18"
-	data-showFooter="false">
-</gist>
+```bash
+for ID in "${RECORD_IDS[@]}"
+do
+  curl \
+    -fs -o /dev/null \
+    -X PUT \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer $ACCESS_TOKEN" \
+    -d "{\"data\":\"$IP\"}" \
+    "https://api.digitalocean.com/v2/domains/$DOMAIN/records/$ID"
+done
+```
 
 The above will call the DigitalOcean API for each record id that you have defined at line 5, as documented in [DigitalOcean's API documentation](https://developers.digitalocean.com/documentation/v2/#update-a-domain-record).
 
@@ -116,16 +178,13 @@ Seeing the script works, we can set it as a `cron` job so it will update the DNS
 
 Adding the following line in your `crontab` will do just that:
 
-<gist
-	id="gist-aa01a6093a52b3fc7f6e91852beb9b69"
-	data-file="cron"
-	data-line="1"
-	data-showFooter="false">
-</gist>
+```txt
+*/20 * * * * /path/to/update-dns.sh
+```
 
 And just like that we have our own dynamic DNS system up and running.
 
-Alternatively to the `cron` solution, if you have an Asus router and you can run [Asuswrt-Merlin firmware](https://www.asuswrt-merlin.net/) on it, you could set the DNS update script to be executed by the router every time your IP changes. Please see [their docs](https://github.com/RMerl/asuswrt-merlin/wiki/Custom-DDNS) and the [adaptation of our script](https://github.com/RMerl/asuswrt-merlin/wiki/DDNS-Sample-Scripts#digitalocean) in order to achieve this.
+Alternatively to the `cron` solution, if you have an Asus router and you can run [Asuswrt-Merlin firmware](https://www.asuswrt-merlin.net/) on it, you could set the DNS update script to be executed by the router every time your IP changes. Please see [their docs](https://github.com/RMerl/asuswrt-merlin.ng/wiki/Custom-DDNS) and the [adaptation of our script](https://github.com/RMerl/asuswrt-merlin.ng/wiki/DDNS-Sample-Scripts#digitalocean) in order to achieve this.
 
 Others routers should support this, so check your router's manual to see if you can set up a custom dynamic DNS script on your router.
 

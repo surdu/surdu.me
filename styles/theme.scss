@@ -1,9 +1,15 @@
-:root {
+.light-theme {
   --text-color: #24292F;
   --background-color: #fff;
+  --accent-color: #C9E184;
+  --link-color: #166CD7;
+  --code-bkg-color: #EFF1F3;
 }
 
 .dark-theme {
   --text-color: #ADBAC6;
   --background-color: #22272E;
+  --accent-color: #A0E22C;
+  --link-color: #579DF2;
+  --code-bkg-color: #3C434D;
 }
