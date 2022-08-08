@@ -1,3 +1,4 @@
+import "~/styles/theme.scss";
 import "~/styles/globals.scss";
 import "~/styles/syntax-light.scss";
 import "~/styles/syntax-dark.scss";

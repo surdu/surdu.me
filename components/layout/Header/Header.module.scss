@@ -1,10 +1,31 @@
+@use "~/styles/vars";
+
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 3rem;
+  background-color: var(--background-color);
+  transition: background-color vars.$transitionDuration;
+  margin: 0 -#{vars.$pagePadding};
+}
+
+[data-scrolled] .header {
+  transition: box-shadow 0.5s;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  transform: translateZ(2rem);
 }
 
 .logo {
   width: 15rem;
+
+  img {
+    vertical-align: middle;
+  }
 }
 
 .nav {
@@ -14,11 +35,14 @@
 
     li {
       display: inline-block;
-      margin: 1rem;
+      margin: 0 1rem;
 
       a {
         text-decoration: none;
         color: var(--text-color);
+        font-size: 2rem;
+        font-weight: bold;
+        text-transform: uppercase;
       }
 
       a:hover {
@@ -28,6 +52,21 @@
   }
 }
 
-.toggleWrap {
+.rightWrap {
   width: 15rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
+
+.socialIcon {
+  height: 3rem;
+  color: var(--text-color);
+  transition: color 0.5;
+  vertical-align: middle;
+
+  &:hover {
+    color: var(--link-color);
+  }
+}
+
