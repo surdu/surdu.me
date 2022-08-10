@@ -8,10 +8,11 @@
   top: 0;
   left: 0;
   right: 0;
-  padding: 1rem 3rem;
+  padding: 1.5rem 4rem;
   background-color: var(--background-color);
   transition: background-color vars.$transitionDuration;
   margin: 0 -#{vars.$pagePadding};
+  margin-top: 1rem;
 }
 
 [data-scrolled] .header {
@@ -25,30 +26,6 @@
 
   img {
     vertical-align: middle;
-  }
-}
-
-.nav {
-  ul {
-    list-style: none;
-    margin: 0;
-
-    li {
-      display: inline-block;
-      margin: 0 1rem;
-
-      a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-size: 2rem;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-    }
   }
 }
 

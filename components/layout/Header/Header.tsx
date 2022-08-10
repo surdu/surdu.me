@@ -4,6 +4,7 @@ import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import ThemeToggle from "~/components/ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
+import Menu from "~/components/Layout/Header/Menu";
 
 export default function Header() {
   return (
@@ -15,25 +16,7 @@ export default function Header() {
           </a>
         </Link>
       </div>
-      <nav className={styles.nav}>
-        <ul>
-          <li>
-            <Link href="/blog">
-              <a>Blog</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/projects">
-              <a>Projects</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Menu />
       <div className={styles.rightWrap}>
         <Link href="https://github.com/surdu">
           <a>
