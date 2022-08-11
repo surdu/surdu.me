@@ -1,19 +1,24 @@
+import Head from "next/head";
+
 import styles from "./BlogPage.module.scss";
 
 import Layout from "~/components/Layout";
 import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
 import Markdown from "~/components/Markdown";
 
-interface BlogPostProps {
+interface BlogPostsProps {
   post: Post;
 }
 
-export default function BlogPost({ post }: BlogPostProps) {
+export default function BlogPosts({ post }: BlogPostsProps) {
   const date = new Intl.DateTimeFormat("en-uk", { dateStyle: "medium" }).format(
     new Date(post.date)
   );
   return (
     <Layout>
+      <Head>
+        <title>{post.title}</title>
+      </Head>
       <h1 className={styles.title}>{post.title}</h1>
       <div className={styles.date}>{date}</div>
       <article className={styles.article}>

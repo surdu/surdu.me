@@ -1,7 +1,7 @@
 ---
 title:  "Make LineString Resolution Depend on Zoom Level in OpenLayers"
 date:   2010-12-20
-tags: [web, js]
+tags: [js]
 ---
 
 So, you want to render a route on your OpenLayers map. Everything will be nice and sweet until you’ll have to render a huge route, in which case no matter what computer your clients have, most probably it will stall. To solve this you have two possibilities: you either reduce the number of lines you send from the server or you reduce the number of points rendered directly on the client’s browser.

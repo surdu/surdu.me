@@ -13,6 +13,7 @@
   transition: background-color vars.$transitionDuration;
   margin: 0 -#{vars.$pagePadding};
   margin-top: 1rem;
+  z-index: 2;
 }
 
 [data-scrolled] .header {

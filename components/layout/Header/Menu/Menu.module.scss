@@ -13,13 +13,7 @@
         font-size: 2rem;
         font-weight: bold;
         text-transform: uppercase;
-        filter: blur(1px);
         transition: all 0.3s;
-      }
-
-      a:hover,
-      a.active {
-        filter: blur(0);
       }
 
       a.active {

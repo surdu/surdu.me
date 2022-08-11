@@ -10,9 +10,11 @@ export interface Post {
   date: number;
   markdown: string;
   synopsis: string;
+  featured: boolean;
+  tags: string[];
 }
 
-export async function getPost(filename: string): Promise<Post> {
+export function getPost(filename: string): Post {
   const fullPath = join(postsDirectory, filename);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
@@ -30,16 +32,42 @@ export async function getPost(filename: string): Promise<Post> {
     date,
     markdown: content,
     synopsis,
+    featured: data.featured || false,
+    tags: data.tags || [],
   };
 }
 
-export async function getAllPosts() {
+interface FilterPostsOptions {
+  excludeFeatured?: boolean;
+  tag?: string;
+}
+
+const defaultFilters: FilterPostsOptions = {
+  excludeFeatured: false,
+};
+
+export function getAllPosts(userFilters?: FilterPostsOptions) {
+  const filters = {
+    ...defaultFilters,
+    ...userFilters,
+  };
+
   const files = fs.readdirSync(postsDirectory);
   const posts: Post[] = [];
 
   for (let f = 0; f < files.length; f++) {
     const filename = files[f];
-    posts.push(await getPost(filename));
+    const post = getPost(filename);
+
+    if (filters.excludeFeatured && post.featured) {
+      continue;
+    }
+
+    if (filters.tag && post.tags.indexOf(filters.tag) === -1) {
+      continue;
+    }
+
+    posts.push(post);
   }
 
   posts.sort((a, b) => b.date - a.date);
@@ -54,11 +82,22 @@ export interface PostParams {
   page: string;
 }
 
-export async function getPostByParams(params: PostParams) {
+export function getPostByParams(params: PostParams) {
   const { year, month, day } = params;
   const page = params.page.split(".")[0];
 
   const filename = `${year}-${month}-${day}-${page}.md`;
 
   return getPost(filename);
+}
+
+export function getAllTags() {
+  const posts = getAllPosts();
+  const tags = new Set<string>();
+
+  posts.forEach((post) => {
+    post.tags.forEach((tag) => tags.add(tag));
+  });
+
+  return Array.from(tags);
 }

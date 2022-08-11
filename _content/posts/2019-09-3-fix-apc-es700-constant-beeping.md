@@ -1,6 +1,7 @@
 ---
-title:  "How I Fixed My APC Back-UPS ES Constant Beeping Problem"
+title:  "How I Fixed the Beeping Problem of My 'APC Back-UPS ES 700'"
 meta_image: /assets/images/apc/bad-caps.jpg
+featured: true
 tags: [electronics]
 ---
 

@@ -1,0 +1,60 @@
+.pageTitle {
+  font-size: 7rem;
+}
+
+.pageSubtitle {
+  font-size: 5rem;
+  margin-bottom: 0;
+  opacity: 0.5;
+}
+
+.hr {
+  margin: 5rem 0;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+
+  .title {
+    color: var(--text-color);
+
+    &:hover {
+      color: var(--link-color);
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+  .date {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+
+  .synopsis {
+    flex: 1;
+  }
+
+  .tags {
+    margin-top: 2rem;
+
+    a {
+      margin-right: 1rem;
+    }
+  }
+
+}
+
+
