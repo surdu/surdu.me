@@ -4,7 +4,7 @@ import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import ThemeToggle from "~/components/ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
-import Menu from "~/components/Layout/Header/Menu";
+import Menu from "~/components/Layout/Header/Menu/Menu";
 
 export default function Header() {
   return (

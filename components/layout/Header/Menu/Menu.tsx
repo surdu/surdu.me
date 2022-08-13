@@ -25,7 +25,7 @@ export default function Menu() {
                 [styles.active]: activeItem === Page.BLOG,
               })}
             >
-              Blog
+              <MenuText>Blog</MenuText>
             </a>
           </Link>
         </li>
@@ -36,7 +36,7 @@ export default function Menu() {
                 [styles.active]: activeItem === Page.PROJECTS,
               })}
             >
-              Projects
+              <MenuText>Projects</MenuText>
             </a>
           </Link>
         </li>
@@ -47,12 +47,22 @@ export default function Menu() {
                 [styles.active]: activeItem === Page.ABOUT,
               })}
             >
-              About
+              <MenuText>About</MenuText>
             </a>
           </Link>
         </li>
       </ul>
     </nav>
+  );
+}
+
+function MenuText({ children }: { children: string }) {
+  return (
+    <>
+      {children.split("").map((letter, index) => (
+        <span key={index}>{letter}</span>
+      ))}
+    </>
   );
 }
 

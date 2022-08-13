@@ -9,15 +9,28 @@
 
       a {
         text-decoration: none;
-        color: var(--text-color);
         font-size: 2.5rem;
         font-weight: bold;
         text-transform: uppercase;
+
+        span {
+          transition: color 0.5s;
+        }
+
+        &:hover span{
+          color: var(--text-color);
+        }
+
+        @for $i from 1 through 10 {
+          span:nth-child(#{$i + 1}) {
+            transition-delay: #{$i / 30}s;
+          }
+        }
       }
 
       @supports (-webkit-text-stroke: 1px black) {
         a.active {
-          -webkit-text-fill-color: var(--text-color);
+          color: var(--text-color);
         }
       }
 
