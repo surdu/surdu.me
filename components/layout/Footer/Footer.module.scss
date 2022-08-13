@@ -1,0 +1,29 @@
+.footer {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-top: 4rem;
+  font-family: monospace;
+  padding-left: 2rem;
+}
+
+.footer::selection {
+  background-color: var(--background-color);
+}
+
+.blue::selection {
+  background-color: #002b7f;
+  color: #fff;
+  opacity: 1;
+}
+
+.yellow::selection {
+  background-color: #fcd116;
+  color: #24292F;
+  opacity: 1;
+}
+
+.red::selection {
+  background-color: #ce1126;
+  color: #fff;
+  opacity: 1;
+}

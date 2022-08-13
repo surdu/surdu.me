@@ -30,7 +30,7 @@ export default function useDarkTheme() {
   function updateDarkTheme(newValue: boolean) {
     setDarkTheme(newValue);
     storeDarkTheme(newValue);
-    updateCSSClass(newValue);
+    updateHTML(newValue);
   }
 
   return { darkTheme, toggleDarkMode };
@@ -61,12 +61,14 @@ function isOSThemeDark() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
-function updateCSSClass(darkMode: boolean) {
+function updateHTML(darkMode: boolean) {
   if (darkMode) {
     document.body.classList.add(DARK_CSS_CLASS);
     document.body.classList.remove(LIGHT_CSS_CLASS);
+    document.body.setAttribute("data-theme", "dark");
   } else {
     document.body.classList.add(LIGHT_CSS_CLASS);
     document.body.classList.remove(DARK_CSS_CLASS);
+    document.body.setAttribute("data-theme", "light");
   }
 }

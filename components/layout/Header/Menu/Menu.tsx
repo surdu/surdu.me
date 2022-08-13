@@ -20,7 +20,11 @@ export default function Menu() {
       <ul>
         <li>
           <Link href="/blog">
-            <a className={clsx({ [styles.active]: activeItem === Page.BLOG })}>
+            <a
+              className={clsx("outlined", {
+                [styles.active]: activeItem === Page.BLOG,
+              })}
+            >
               Blog
             </a>
           </Link>
@@ -28,7 +32,7 @@ export default function Menu() {
         <li>
           <Link href="/projects">
             <a
-              className={clsx({
+              className={clsx("outlined", {
                 [styles.active]: activeItem === Page.PROJECTS,
               })}
             >
@@ -38,7 +42,11 @@ export default function Menu() {
         </li>
         <li>
           <Link href="/about">
-            <a className={clsx({ [styles.active]: activeItem === Page.ABOUT })}>
+            <a
+              className={clsx("outlined", {
+                [styles.active]: activeItem === Page.ABOUT,
+              })}
+            >
               About
             </a>
           </Link>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import clsx from "clsx";
 
 import styles from "./blog.module.scss";
 
@@ -19,7 +20,7 @@ export default function Blog({ posts, featuredPost }: BlogProps) {
           <h1 className={styles.pageTitle}>Blog</h1>
           <div>
             <h2 className={styles.pageSubtitle}>Featured post</h2>
-            <Post post={featuredPost} />
+            <Post post={featuredPost} className={styles.featured} />
           </div>
 
           <hr className={styles.hr} />
@@ -35,15 +36,20 @@ export default function Blog({ posts, featuredPost }: BlogProps) {
   );
 }
 
-function Post(props: { post: Post }) {
-  const { post } = props;
+interface PostProps {
+  post: Post;
+  className?: string;
+}
+
+function Post(props: PostProps) {
+  const { post, className } = props;
 
   const date = new Intl.DateTimeFormat("en-uk", {
     dateStyle: "medium",
   }).format(new Date(post.date));
 
   return (
-    <div className={styles.post}>
+    <div className={clsx(styles.post, className)}>
       <Link href={post.url}>
         <a className={styles.title}>
           <h2>{post.title}</h2>

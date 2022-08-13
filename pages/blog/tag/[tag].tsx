@@ -3,11 +3,13 @@ import { getAllPosts, getAllTags, Post } from "~/lib/post";
 
 interface BlogPostsByTagProps {
   posts: Post[];
+  tag: string;
 }
 
-export default function BlogPostsByTag({ posts }: BlogPostsByTagProps) {
+export default function BlogPostsByTag({ posts, tag }: BlogPostsByTagProps) {
   return (
     <Layout>
+      <h1>{tag} posts</h1>
       {posts.map((post) => (
         <div key={post.url}>{post.title}</div>
       ))}
@@ -23,7 +25,7 @@ interface Params {
 
 export async function getStaticProps({ params: { tag } }: Params) {
   const posts = await getAllPosts({ tag });
-  return { props: { posts } };
+  return { props: { posts, tag } };
 }
 
 export async function getStaticPaths() {
