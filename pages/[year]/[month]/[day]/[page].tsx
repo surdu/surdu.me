@@ -5,6 +5,7 @@ import styles from "./BlogPage.module.scss";
 import Layout from "~/components/Layout";
 import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
 import Markdown from "~/components/Markdown";
+import Comments from "~/components/Comments";
 
 interface BlogPostsProps {
   post: Post;
@@ -24,6 +25,9 @@ export default function BlogPosts({ post }: BlogPostsProps) {
       <article className={styles.article}>
         <Markdown>{post.markdown}</Markdown>
       </article>
+      <div className={styles.comments}>
+        <Comments post={post} />
+      </div>
     </Layout>
   );
 }
