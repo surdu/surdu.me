@@ -6,6 +6,7 @@ import Layout from "~/components/Layout";
 import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
 import Markdown from "~/components/Markdown";
 import Comments from "~/components/Comments";
+import BackToTop from "~/components/BackToTop/BackToTop";
 
 interface BlogPostsProps {
   post: Post;
@@ -28,6 +29,7 @@ export default function BlogPosts({ post }: BlogPostsProps) {
       <div className={styles.comments}>
         <Comments post={post} />
       </div>
+      <BackToTop />
     </Layout>
   );
 }

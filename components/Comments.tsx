@@ -11,5 +11,23 @@ export default function Comments({ post }: CommentsProps) {
     identifier: `/${post.url}`,
   };
 
-  return <DiscussionEmbed shortname="surdu-me" config={disqusConfig} />;
+  return (
+    <div style={{ position: "relative" }}>
+      <DiscussionEmbed
+        shortname="surdu-me"
+        config={disqusConfig}
+      ></DiscussionEmbed>
+      <div
+        style={{
+          width: "200px",
+          height: "22px",
+          backgroundColor: "var(--background-color)",
+          position: "absolute",
+          top: "222px",
+          left: "122px",
+          zIndex: 2222,
+        }}
+      ></div>
+    </div>
+  );
 }

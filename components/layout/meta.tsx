@@ -3,6 +3,17 @@ import Head from "next/head";
 export default function Meta() {
   return (
     <Head>
+      <meta
+        content="width=device-width,initial-scale=1,viewport-fit=cover"
+        name="viewport"
+      />
+      <meta name="description" content="Personal website of Surdu Nicolae" />
+
+      {/* TODO: make this dynamic */}
+      <meta name="theme-color" content="#fff" />
+
+      <title>Surdu Nicu</title>
+
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -27,9 +38,6 @@ export default function Meta() {
         color="#000000"
       />
       <link rel="shortcut icon" href="/favicon/favicon.ico" />
-      <meta name="description" content="Personal website of Surdu Nicolae" />
-
-      <title>Surdu Nicu</title>
     </Head>
   );
 }

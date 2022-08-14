@@ -12,7 +12,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   useEffect(function bindOnScroll() {
     function handleScroll() {
-      if (window.scrollY > 80) {
+      if (window.scrollY > 130) {
         document.body.setAttribute("data-scrolled", "");
       } else {
         document.body.removeAttribute("data-scrolled");
@@ -29,6 +29,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Meta />
+      <a id="top" />
       <Header />
       <main className={styles.main}>{children}</main>
       <Footer />
