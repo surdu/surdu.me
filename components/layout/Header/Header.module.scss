@@ -24,9 +24,10 @@
 
 .logo {
   width: 15rem;
+  vertical-align: middle;
 
-  img {
-    vertical-align: middle;
+  path {
+    stroke: var(--text-color);
   }
 }
 

@@ -5,17 +5,16 @@ import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import ThemeToggle from "~/components/ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
 import Menu from "~/components/Layout/Header/Menu/Menu";
+import Logo from "./logo.svg";
 
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <Link href="/">
-          <a>
-            <img src="/logo.gif" alt="Logo" />
-          </a>
-        </Link>
-      </div>
+      <Link href="/">
+        <a>
+          <Logo className={styles.logo} />
+        </a>
+      </Link>
       <Menu />
       <div className={styles.rightWrap}>
         <Link href="https://github.com/surdu">
