@@ -16,7 +16,7 @@
   z-index: 2;
 }
 
-[data-scrolled] .header {
+[header-scrolled] .header {
   transition: box-shadow 0.5s;
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
   transform: translateZ(2rem);

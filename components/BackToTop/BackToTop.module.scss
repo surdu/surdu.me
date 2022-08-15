@@ -1,20 +1,26 @@
+$animationDuration: 0.3s;
+
 .button {
   position: fixed;
-  bottom: 3rem;
   right: 5rem;
-  display: none;
   background-color: var(--text-color);
   color: var(--background-color);
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 20%;
   text-align: center;
+  bottom: -3rem;
+  opacity: 0;
+  transition: bottom $animationDuration, opacity $animationDuration;
+
 
   &:hover {
     text-decoration: none;
   }
 }
 
-[data-scrolled] .button {
+[data-page-scrolled] .button {
   display: block;
+  bottom: 3rem;
+  opacity: 1;
 }

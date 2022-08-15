@@ -13,9 +13,15 @@ export default function Layout({ children }: LayoutProps) {
   useEffect(function bindOnScroll() {
     function handleScroll() {
       if (window.scrollY > 130) {
-        document.body.setAttribute("data-scrolled", "");
+        document.body.setAttribute("header-scrolled", "");
       } else {
-        document.body.removeAttribute("data-scrolled");
+        document.body.removeAttribute("header-scrolled");
+      }
+
+      if (window.scrollY > vh(90)) {
+        document.body.setAttribute("data-page-scrolled", "");
+      } else {
+        document.body.removeAttribute("data-page-scrolled");
       }
     }
 
@@ -29,10 +35,17 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Meta />
-      <a id="top" />
       <Header />
       <main className={styles.main}>{children}</main>
       <Footer />
     </>
   );
+}
+
+function vh(value: number) {
+  const height = Math.max(
+    document.documentElement.clientHeight,
+    window.innerHeight || 0
+  );
+  return (value * height) / 100;
 }
