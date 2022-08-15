@@ -19,45 +19,6 @@
   gap: 4rem;
 }
 
-.post {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 300px;
-  padding: 3rem;
-  background-color: var(--alt-bkg-color);
-
-  .title {
-    color: var(--text-color);
-
-    &:hover {
-      color: var(--link-color);
-    }
-
-    h2 {
-      margin: 0;
-    }
-  }
-
-  .date {
-    text-transform: uppercase;
-    font-size: 1.4rem;
-    margin: 1rem 0;
-  }
-
-  .synopsis {
-    flex: 1;
-  }
-
-  .tags {
-    margin-top: 2rem;
-
-    a {
-      margin-right: 1rem;
-    }
-  }
-}
-
 .featured {
   background-color: var(--code-bkg-color);
 }

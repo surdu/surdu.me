@@ -12,7 +12,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   useEffect(function bindOnScroll() {
     function handleScroll() {
-      if (window.scrollY > 130) {
+      if (window.scrollY > 110) {
         document.body.setAttribute("header-scrolled", "");
       } else {
         document.body.removeAttribute("header-scrolled");

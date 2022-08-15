@@ -1,5 +1,8 @@
+import BlogEntry from "~/components/BlogEntry/BlogEntry";
 import Layout from "~/components/Layout";
 import { getAllPosts, getAllTags, Post } from "~/lib/post";
+
+import styles from "./tag.module.scss";
 
 interface BlogPostsByTagProps {
   posts: Post[];
@@ -9,10 +12,14 @@ interface BlogPostsByTagProps {
 export default function BlogPostsByTag({ posts, tag }: BlogPostsByTagProps) {
   return (
     <Layout>
-      <h1>{tag} posts</h1>
-      {posts.map((post) => (
-        <div key={post.url}>{post.title}</div>
-      ))}
+      <h1>
+        Posts tagged with <span className="outlined">#{tag}</span>
+      </h1>
+      <div className={styles.posts}>
+        {posts.map((post) => (
+          <BlogEntry post={post} key={post.url} />
+        ))}
+      </div>
     </Layout>
   );
 }
