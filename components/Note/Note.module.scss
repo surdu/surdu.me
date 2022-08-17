@@ -1,0 +1,43 @@
+$defaultColor: #199CD4;
+$dangerColor: #F43439;
+
+.note {
+  border-left-width: 0.6rem;
+  border-left-style: solid;
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  margin: 3rem 0;
+  font-size: 1.7rem;
+  border-left-color: $defaultColor;
+  background-color: rgba($defaultColor, 0.2);
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.9rem;
+  color: $defaultColor;
+
+  svg {
+    height: 1.5rem;
+  }
+}
+
+.note.danger {
+  border-left-color: $dangerColor;
+  background-color: rgba($dangerColor, 0.2);
+
+  .title {
+    color: $dangerColor;
+  }
+}
+
+.note.quote {
+  border-left-color: $defaultColor;
+  background-color: transparent;
+  font-size: inherit;
+  border-radius: 0;
+  font-style: italic;
+  border-left-width: 0.3rem;
+}
