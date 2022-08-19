@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  faTwitter,
+  faStackOverflow,
+} from "@fortawesome/free-brands-svg-icons";
 
 import ThemeToggle from "~/components/ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
@@ -20,6 +24,14 @@ export default function Header() {
         <Link href="https://github.com/surdu">
           <a>
             <FontAwesomeIcon icon={faGithub} className={styles.socialIcon} />
+          </a>
+        </Link>
+        <Link href="https://stackoverflow.com/users/460750/nicu-surdu">
+          <a>
+            <FontAwesomeIcon
+              icon={faStackOverflow}
+              className={styles.socialIcon}
+            />
           </a>
         </Link>
         <Link href="https://twitter.com/surdume">
