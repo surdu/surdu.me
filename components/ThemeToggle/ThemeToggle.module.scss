@@ -1,0 +1,44 @@
+$padding: 0.2em;
+$height: 3rem;
+$thumbSize: calc(#{$height} - (#{$padding} * 2));
+
+.input {
+  display: none;
+}
+
+.label {
+  position: relative;
+  text-indent: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  width: 7rem;
+  height: $height;
+  border-radius: 2rem;
+  background-color: #22272E;
+
+  &:before {
+    content: "";
+    background-color: #fff;
+    width: $thumbSize;
+    height: $thumbSize;
+    border-radius: 2rem;
+    position: absolute;
+    top: $padding;
+    left: $padding;
+    transition: all 0.3s;
+  }
+
+  .input:checked + & {
+    background-color: #72A3FC;
+  }
+
+  .input:checked + &:before {
+    left: calc(100% - #{$padding});
+    transform: translateX(-100%);
+  }
+
+  &:active:before {
+    width: calc(#{$thumbSize} + 15%);
+  }
+}
+
