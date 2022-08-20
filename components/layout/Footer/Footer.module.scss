@@ -27,3 +27,15 @@
   color: #fff;
   opacity: 1;
 }
+
+.legal {
+  margin-top: 0.5rem;
+
+  a {
+    margin: 0 1rem;
+  }
+
+  a:first-child {
+    margin-left: 0;
+  }
+}
