@@ -1,6 +1,14 @@
 $padding: 0.2em;
 $height: 3rem;
 $thumbSize: calc(#{$height} - (#{$padding} * 2));
+$animationDuration: 0.5s;
+
+$glowSize: 0.5rem;
+
+$sunX: calc(1.8rem - #{$glowSize});
+$sunY: calc(1.3rem - #{$glowSize});
+$moonX: calc(4.6rem - #{$glowSize});
+$moonY: calc(0.3rem - #{$glowSize});
 
 .input {
   display: none;
@@ -14,31 +22,83 @@ $thumbSize: calc(#{$height} - (#{$padding} * 2));
   width: 7rem;
   height: $height;
   border-radius: 2rem;
-  background-color: #22272E;
+  background: linear-gradient(#48ADFC, #FCF8B9);
+}
 
-  &:before {
-    content: "";
-    background-color: #fff;
-    width: $thumbSize;
-    height: $thumbSize;
-    border-radius: 2rem;
+.landscape {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+
+  .hills {
     position: absolute;
-    top: $padding;
-    left: $padding;
-    transition: all 0.3s;
+    left: 0;
+    bottom: 0;
   }
 
-  .input:checked + & {
-    background-color: #72A3FC;
+  .sun {
+    position: absolute;
+    left: $sunX;
+    top: $sunY;
+    opacity: 1;
+    transition: all $animationDuration;
   }
 
-  .input:checked + &:before {
-    left: calc(100% - #{$padding});
-    transform: translateX(-100%);
+  .clouds {
+    position: absolute;
+    left: 3rem;
+    top: 0.15rem;
+    opacity: 1;
+    transition: all $animationDuration;
   }
 
-  &:active:before {
-    width: calc(#{$thumbSize} + 15%);
+  .moon {
+    position: absolute;
+    left: $sunX;
+    top: $sunY;
+    opacity: 0;
+    transition: all $animationDuration;
+  }
+
+  .stars {
+    position: absolute;
+    left: -50%;
+    top: 50%;
+    opacity: 0;
+    transition: all $animationDuration;
+  }
+}
+
+:global(.dark-theme) {
+  .label {
+    background: linear-gradient(#041425, #0F63D2);
+  }
+
+  .sun {
+    opacity: 0;
+    left: $moonX;
+    top: $moonY;
+  }
+
+  .clouds {
+    opacity: 0;
+    left: 100%;
+  }
+
+  .moon {
+    opacity: 1;
+    left: $moonX;
+    top: $moonY;
+  }
+
+  .stars {
+    opacity: 1;
+    left: 0.5rem;
+    top: 0.4rem;
   }
 }
 
