@@ -3,6 +3,7 @@ import { getAllPosts, Post } from "~/lib/post";
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 
 import styles from "./blog.module.scss";
+import Head from "next/head";
 
 interface BlogProps {
   posts: Post[];
@@ -12,6 +13,10 @@ interface BlogProps {
 export default function Blog({ posts, featuredPost }: BlogProps) {
   return (
     <Layout>
+      <Head>
+        <title>Surdu Nicu's Blog</title>
+      </Head>
+
       {featuredPost && (
         <>
           <h1 className={styles.pageTitle}>Blog</h1>
