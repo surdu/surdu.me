@@ -2,7 +2,7 @@ import Layout from "~/components/Layout";
 import { getAllPosts, Post } from "~/lib/post";
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 
-import styles from "./blog.module.scss";
+import styles from "./Blog.module.scss";
 import Head from "next/head";
 
 interface BlogProps {
@@ -14,12 +14,13 @@ export default function Blog({ posts, featuredPost }: BlogProps) {
   return (
     <Layout>
       <Head>
-        <title>Surdu Nicu's Blog</title>
+        <title>The Surdu Blog</title>
       </Head>
+
+      <h1 className={styles.pageTitle}>Blog</h1>
 
       {featuredPost && (
         <>
-          <h1 className={styles.pageTitle}>Blog</h1>
           <div>
             <h2 className={styles.pageSubtitle}>Featured post</h2>
             <BlogEntry post={featuredPost} className={styles.featured} />

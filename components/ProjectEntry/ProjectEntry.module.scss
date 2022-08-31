@@ -1,0 +1,40 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 30rem;
+  padding: 1.5rem 3rem;
+  background-color: var(--alt-bkg-color);
+}
+
+.title {
+  color: var(--text-color);
+
+  &:hover {
+    color: var(--link-color);
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    margin: 0;
+  }
+}
+
+.year {
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.description {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  font-size:1.8rem;
+  gap: 1rem;
+}
