@@ -19,7 +19,7 @@ export default function ProjectEntry({ project }: ProjectEntryProps) {
       <div className={styles.description}>{project.description}</div>
       <div className={styles.tags}>
         {project.tags.map((tag) => (
-          <Link href="#" key={tag}>
+          <Link href={`/projects/tag/${tag}`} key={tag}>
             <a>#{tag}</a>
           </Link>
         ))}

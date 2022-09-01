@@ -37,16 +37,16 @@ export function getPost(filename: string): Post {
   };
 }
 
-interface FilterPostsOptions {
+interface PostsFilter {
   excludeFeatured?: boolean;
   tag?: string;
 }
 
-const defaultFilters: FilterPostsOptions = {
+const defaultFilters: PostsFilter = {
   excludeFeatured: false,
 };
 
-export function getAllPosts(userFilters?: FilterPostsOptions) {
+export function getAllPosts(userFilters?: PostsFilter) {
   const filters = {
     ...defaultFilters,
     ...userFilters,
@@ -63,7 +63,7 @@ export function getAllPosts(userFilters?: FilterPostsOptions) {
       continue;
     }
 
-    if (filters.tag && post.tags.indexOf(filters.tag) === -1) {
+    if (filters.tag && post.tags.includes(filters.tag)) {
       continue;
     }
 
@@ -91,7 +91,7 @@ export function getPostByParams(params: PostParams) {
   return getPost(filename);
 }
 
-export function getAllTags() {
+export function getPostsTags() {
   const posts = getAllPosts();
   const tags = new Set<string>();
 

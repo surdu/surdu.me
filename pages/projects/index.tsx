@@ -18,7 +18,7 @@ export default function Projects(props: ProjectsProps) {
         <title>Surdu's Projects</title>
       </Head>
 
-      <h1 className={styles.pageTitle}>Projects</h1>
+      <h1 className={styles.pageTitle}>My Projects</h1>
 
       <div className={styles.projects}>
         {projects.map((project, index) => (

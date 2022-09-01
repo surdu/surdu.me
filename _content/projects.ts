@@ -20,7 +20,7 @@ const projects = [
     title: "Scroll Marker",
     year: 2017,
     description:
-      "Plugin that provided scrollbar highlight functionality for Atom Editor",
+      "Plugin that provides scrollbar highlight functionality for Atom Editor",
     sourceUrl: "https://github.com/surdu/scroll-marker",
     tags: ["code"],
   },
@@ -29,7 +29,7 @@ const projects = [
     title: "Selector to Tag",
     year: 2015,
     description:
-      "Atom package that allows you to create HTML tag elements using CSS selectors in HTML files",
+      "Atom Editor plugin that allows you to create HTML tag elements using CSS selectors in HTML files",
     sourceUrl: "https://github.com/surdu/selector-to-tag",
     tags: ["code"],
   },

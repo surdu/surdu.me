@@ -1,6 +1,6 @@
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 import Layout from "~/components/Layout";
-import { getAllPosts, getAllTags, Post } from "~/lib/post";
+import { getAllPosts, getPostsTags, Post } from "~/lib/post";
 
 import styles from "./tag.module.scss";
 
@@ -36,7 +36,7 @@ export async function getStaticProps({ params: { tag } }: Params) {
 }
 
 export async function getStaticPaths() {
-  const tags = await getAllTags();
+  const tags = await getPostsTags();
 
   return {
     paths: tags.map((tag) => {
