@@ -5,7 +5,7 @@ tags: [devops]
 
 As of the writing of this article, this blog's content is generated using [Jekyll](https://jekyllrb.com/) and hosted on [GitHub Pages](https://pages.github.com/). Until recently all was well: I pushed my code to the `master` branch on my website's repository and GitHub took care of generating the website for me using Jekyll. All this changed when I started needing to use a custom Jekyll plugin, as GitHub Pages don't support custom plugins due to security concerns.
 
-What is needed in order to use GitHub pages with custom plugins is to generate the website locally and then upload the generated content to a special branch on your repository called `gh-pages`.
+What is needed to use GitHub pages with custom plugins is to generate the website locally and then upload the generated content to a special branch on your repository named `gh-pages`.
 
 The solution that I've implemented involves creating a pre-push git hook that will do the following if it sees a push on the `master` branch:
 
@@ -15,11 +15,11 @@ The solution that I've implemented involves creating a pre-push git hook that wi
  4. copy back the content of the `_site` folder directly into the current working directory
  5. commit and push the newly copied content on the `gh-pages` branch
 
-What we need to do first is to set-up our repository for this purpose.
+What we need to do first is to set up our repository for this purpose.
 
-First thing that we need to do is make sure we have Jekyll installed locally. Please check [Jekyll documentation](https://jekyllrb.com/docs/installation/) for that.
+The first thing that we need to do is make sure we have Jekyll installed locally. Please check [Jekyll documentation](https://jekyllrb.com/docs/installation/) for that.
 
-Afterwards, we need to make sure we have the `gh-pages` branch on the repository. To do this, run the following terminal command in your local repository folder:
+Afterward, we need to make sure we have the `gh-pages` branch on the repository. To do this, run the following terminal command in your local repository folder:
 
 ```bash
 git checkout -b gh-pages
@@ -42,7 +42,7 @@ git push
 
 Now that the `gh-pages` branch contains no file, we're ready to add the git hook that will take care of generating the content for us.
 
-First let's create the git hook file:
+First, let's create the git hook file:
 
 ```bash
 touch .git/hooks/pre-push
@@ -92,8 +92,10 @@ else
 fi
 ```
 
-Please note the comments in the above code (lines starting with #) which explain what each section of the code does. You should find steps that are listed in the beginning of this article.
+<note>
+If you look at the comments in the above code (lines starting with #) which explain what each section of the code does, you should find the steps that are listed at the beginning of this article.
+</note>
 
-And that's it! Now, every time you push a commit to the `master` branch, you `gh-pages` branch should be updated with the content of your website.
+And that's it! Now, every time you push a commit to the `master` branch, your `gh-pages` branch should be updated with the content of your website.
 
 Hope this helps! 👍

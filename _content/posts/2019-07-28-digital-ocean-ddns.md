@@ -3,17 +3,17 @@ title:  "Use DigitalOcean as Dynamic DNS"
 tags: [devops]
 ---
 
-I have a server at my home on which I host various test projects and I needed a dynamic DNS service as my ISP assigns me an IP dynamically. Tried some dynamic DNS services, but their domain names tend to get long, and I don't like typing URLS. So I decided to buy a domain and handle the DNS update myself.
+I have a server at my home on which I host various test projects and I needed a dynamic DNS service as my ISP assigns me an IP dynamically. Tried some dynamic DNS services, but their domain names tend to get long, and I don't like typing URLs. So I decided to buy a domain and handle the DNS update myself.
 
-What we'll do is a script that finds out what our IP is and then tells it to DigitalOcean. This script will run at a specified interval on our server.
+What we'll do is a script that finds out what our IP is and then reports it to DigitalOcean. This script will run at a specified interval on our server.
 
 For this you'll need a UNIX machine, a [DigitalOcean](https://www.digitalocean.com/) account and a domain pointed to DigitalOcean's Nameservers.
 
-To see how to point your domain to DigitalOcean check [this article](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars) or check with your domain's registrar on how to do it, as it vary from one to another.
+To see how to point your domain to DigitalOcean check [this article](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars) or check with your domain's registrar on how to do it, as it varies from one to another.
 
 Also, we'll use `cron` in this tutorial, so if you're not familiar with it please read [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-on-a-vps) before.
 
-I will not cover in detail what needs to be done on DigitalOcean's side, as their documentations covers it already. I'll mostly list the steps needed along with the links in their documentation:
+I will not cover in detail what needs to be done on DigitalOcean's side, as their documentation covers it already. I'll just list the steps needed along with the links in their documentation:
 
 1. [Generate an access token](https://www.digitalocean.com/docs/api/create-personal-access-token/)
 2. [Create a project](https://www.digitalocean.com/docs/projects/how-to/create/)
@@ -24,7 +24,7 @@ In my case, I added two `A` DNS records:
 
 ![Example records](/assets/images/do-dns/records.jpg)
 
-The first one is the required one, and will point `example.com` domain to my machine. The second one will point all sub-domains of `example.com` (like `test.example.com`) to my machine.
+The first one is the required one and will point `example.com` domain to my machine. The second one will point all sub-domains of `example.com` (like `test.example.com`) to my machine.
 
 For the first one enter `@` in the `Hostname` field when you create the record, and for the second one enter `*`. As for the IP, it doesn't matter what you enter as it will be automatically updated later by our script.
 
@@ -69,7 +69,7 @@ The things we need to change are at the top of the file. We'll start by changing
 ACCESS_TOKEN=3u2c62u1z51j7djilw58wt04220vqbuzud6z5o2xahz4k8ufxj7eejg2w2trjxma
 ```
 
-Next thing to change it's pretty straight forward: at line 4, set the domain for which to update the DNS records. In our example, this is `example.com`.
+The next thing to change it's pretty straightforward: at line 4, set the domain for which to update the DNS records. In our example, this is `example.com`.
 
 ```bash
 DOMAIN=example.com
@@ -120,7 +120,7 @@ This is the output for our example:
 "data":"192.168.1.1"
 ```
 
-From this, we only care about the `id` of our `A` DNS records. From the above output we can determine that those IDs are `76145698` and `76145705`. So we change our initial script accordingly:
+From this, we only care about the `id` of our `A` DNS records. From the above output, we can determine that those IDs are `76145698` and `76145705`. So we change our initial script accordingly:
 
 ```txt
 RECORD_IDS=(76145698 76145705)
