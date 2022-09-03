@@ -13,16 +13,20 @@ interface BlogPostsProps {
 }
 
 export default function BlogPosts({ post }: BlogPostsProps) {
+  const rawDate = new Date(post.date);
   const date = new Intl.DateTimeFormat("en-uk", { dateStyle: "medium" }).format(
-    new Date(post.date)
+    rawDate
   );
+  const datetime = rawDate.toISOString().split("T")[0];
   return (
     <Layout>
       <Head>
         <title>{post.title}</title>
       </Head>
       <h1 className={styles.title}>{post.title}</h1>
-      <div className={styles.date}>{date}</div>
+      <time className={styles.date} dateTime={datetime}>
+        {date}
+      </time>
       <article className={styles.article}>
         <Markdown>{post.markdown}</Markdown>
       </article>

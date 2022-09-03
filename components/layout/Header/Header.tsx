@@ -13,21 +13,21 @@ import Logo from "./logo.svg";
 
 export default function Header() {
   return (
-    <header className={styles.header}>
+    <header className={styles.header} aria-label="Page header">
       <Link href="/">
-        <a>
-          <Logo className={styles.logo} />
+        <a tabIndex={0}>
+          <Logo className={styles.logo} aria-label="Surdu's Logo" />
         </a>
       </Link>
       <Menu />
-      <div className={styles.rightWrap}>
+      <div className={styles.rightWrap} aria-label="">
         <Link href="https://github.com/surdu">
-          <a>
+          <a aria-label="My GitHub page">
             <FontAwesomeIcon icon={faGithub} className={styles.socialIcon} />
           </a>
         </Link>
         <Link href="https://stackoverflow.com/users/460750/nicu-surdu">
-          <a>
+          <a aria-label="My StackOverflow page">
             <FontAwesomeIcon
               icon={faStackOverflow}
               className={styles.socialIcon}
@@ -35,7 +35,7 @@ export default function Header() {
           </a>
         </Link>
         <Link href="https://twitter.com/surdume">
-          <a>
+          <a aria-label="My Twitter page">
             <FontAwesomeIcon icon={faTwitter} className={styles.socialIcon} />
           </a>
         </Link>

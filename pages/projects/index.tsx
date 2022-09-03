@@ -15,7 +15,7 @@ export default function Projects(props: ProjectsProps) {
   return (
     <Layout>
       <Head>
-        <title>Surdu's Projects</title>
+        <title>Surdu&apos;s Projects</title>
       </Head>
 
       <h1 className={styles.pageTitle}>My Projects</h1>

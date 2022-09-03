@@ -63,7 +63,7 @@ export function getAllPosts(userFilters?: PostsFilter) {
       continue;
     }
 
-    if (filters.tag && post.tags.includes(filters.tag)) {
+    if (filters.tag && !post.tags.includes(filters.tag)) {
       continue;
     }
 

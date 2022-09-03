@@ -11,7 +11,8 @@ $moonX: calc(4.6rem - #{$glowSize});
 $moonY: calc(0.3rem - #{$glowSize});
 
 .input {
-  display: none;
+  position: absolute;
+  transform: translateY(-200px);
 }
 
 .label {
@@ -23,6 +24,10 @@ $moonY: calc(0.3rem - #{$glowSize});
   height: $height;
   border-radius: 2rem;
   background: linear-gradient(#48ADFC, #FCF8B9);
+}
+
+.input:focus + .label {
+  outline: 0.2rem solid var(--link-color);
 }
 
 .landscape {

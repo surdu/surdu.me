@@ -35,6 +35,10 @@ body,
   flex-direction: column;
 }
 
+#mainContent {
+  scroll-margin-top: 6rem;
+}
+
 img {
   max-width: 100%;
 }

@@ -16,14 +16,16 @@ export default function Menu() {
   const activeItem = getActiveMenuItem(router.pathname);
 
   return (
-    <nav className={styles.nav}>
-      <ul>
+    <nav className={styles.nav} aria-label="Main menu">
+      <ol>
         <li>
           <Link href="/blog">
             <a
               className={clsx("outlined", {
                 [styles.active]: activeItem === Page.BLOG,
               })}
+              aria-label="Blog"
+              tabIndex={0}
             >
               <MenuText>Blog</MenuText>
             </a>
@@ -35,6 +37,7 @@ export default function Menu() {
               className={clsx("outlined", {
                 [styles.active]: activeItem === Page.PROJECTS,
               })}
+              aria-label="Projects"
             >
               <MenuText>Projects</MenuText>
             </a>
@@ -46,12 +49,13 @@ export default function Menu() {
               className={clsx("outlined", {
                 [styles.active]: activeItem === Page.ABOUT,
               })}
+              aria-label="About"
             >
               <MenuText>About</MenuText>
             </a>
           </Link>
         </li>
-      </ul>
+      </ol>
     </nav>
   );
 }
@@ -60,7 +64,9 @@ function MenuText({ children }: { children: string }) {
   return (
     <>
       {children.split("").map((letter, index) => (
-        <span key={index}>{letter}</span>
+        <span key={index} aria-hidden="true">
+          {letter}
+        </span>
       ))}
     </>
   );

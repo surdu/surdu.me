@@ -20,7 +20,7 @@ export default function ProjectEntry({ project }: ProjectEntryProps) {
       <div className={styles.tags}>
         {project.tags.map((tag) => (
           <Link href={`/projects/tag/${tag}`} key={tag}>
-            <a>#{tag}</a>
+            <a aria-label={`${tag} tag`}>#{tag}</a>
           </Link>
         ))}
       </div>

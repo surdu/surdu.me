@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer/Footer";
 import Meta from "./Meta";
 import { useEffect } from "react";
+import SkipToContent from "~/components/SkipToContent/SkipToContent";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -35,8 +36,11 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Meta />
+      <SkipToContent />
       <Header />
-      <main className={styles.main}>{children}</main>
+      <main className={styles.main} id="mainContent">
+        {children}
+      </main>
       <Footer />
     </>
   );

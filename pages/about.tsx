@@ -9,9 +9,9 @@ export default function Home() {
       </Head>
       <h1>Hello friend 👋</h1>
       <p>
-        My name is Nicu Surdu. I'm a software engineer by day, and a tinkerer by
-        night. I enjoy writing good software for good people and using my free
-        time to build and play with gadgets.
+        My name is Nicu Surdu. I&apos;m a software engineer by day, and a
+        tinkerer by night. I enjoy writing good software for good people and
+        using my free time to build and play with gadgets.
       </p>
 
       <p>
