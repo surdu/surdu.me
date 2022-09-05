@@ -24,7 +24,11 @@ export default function BlogPosts({ post }: BlogPostsProps) {
         <title>{post.title}</title>
       </Head>
       <h1 className={styles.title}>{post.title}</h1>
-      <time className={styles.date} dateTime={datetime}>
+      <time
+        className={styles.date}
+        dateTime={datetime}
+        aria-label="Publish date"
+      >
         {date}
       </time>
       <article className={styles.article}>

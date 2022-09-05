@@ -42,7 +42,7 @@ function renderTitle(type: NoteType) {
     case NoteType.danger:
       return (
         <>
-          <FontAwesomeIcon icon={faTriangleExclamation} /> Danger
+          <FontAwesomeIcon icon={faTriangleExclamation} /> Warning
         </>
       );
 

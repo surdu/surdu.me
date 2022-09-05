@@ -5,7 +5,7 @@ interface TagProps {
 
 export default function Tag({ children, className }: TagProps) {
   return (
-    <span aria-label={`${children} tag`} className={className}>
+    <span aria-label={`hashtag ${children}`} className={className}>
       <span aria-hidden="true">#{children}</span>
     </span>
   );

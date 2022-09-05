@@ -28,7 +28,11 @@ export default function BlogEntry(props: PostProps) {
           <h2>{post.title}</h2>
         </a>
       </Link>
-      <time className={styles.date} dateTime={datetime}>
+      <time
+        className={styles.date}
+        dateTime={datetime}
+        aria-label="Publish date"
+      >
         {date}
       </time>
       <div className={styles.synopsis}>

@@ -16,7 +16,9 @@ export default function ProjectEntry({ project }: ProjectEntryProps) {
           <h2>{project.title}</h2>
         </a>
       </Link>
-      <div className={styles.year}>{project.year}</div>
+      <time className={styles.year} aria-label="Publish year">
+        {project.year}
+      </time>
       <div className={styles.description}>{project.description}</div>
       <div className={styles.tags}>
         {project.tags.map((tag) => (
