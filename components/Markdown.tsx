@@ -3,7 +3,6 @@ import Code from "~/components/Code/Code";
 import CodePen from "~/components/CodePen";
 import LinkedHeading from "~/components/LinkedHeading/LinkedHeading";
 import Note from "~/components/Note/Note";
-import Warning from "~/components/Warning";
 
 interface MarkdownProps {
   children: string;
@@ -14,7 +13,6 @@ export default function Markdown({ children }: MarkdownProps) {
     <MarkdownJSX
       options={{
         overrides: {
-          warn: Warning,
           code: Code,
           codepen: CodePen,
           note: Note,

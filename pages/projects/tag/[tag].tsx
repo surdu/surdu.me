@@ -1,5 +1,6 @@
 import Layout from "~/components/Layout";
 import ProjectEntry from "~/components/ProjectEntry/ProjectEntry";
+import Tag from "~/components/Tag";
 import { getAllProjects, getProjectsTags, Project } from "~/lib/project";
 
 import styles from "./tag.module.scss";
@@ -13,7 +14,7 @@ export default function ProjectsByTag({ projects, tag }: ProjectsByTagProps) {
   return (
     <Layout>
       <h1>
-        Projects tagged with <span className="outlined">#{tag}</span>
+        Projects tagged with <Tag className="outlined">{tag}</Tag>
       </h1>
       <div className={styles.projects}>
         {projects.map((project, index) => (

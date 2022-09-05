@@ -5,6 +5,7 @@ import styles from "./BlogEntry.module.scss";
 
 import Markdown from "~/components/Markdown";
 import { Post } from "~/lib/post";
+import Tag from "~/components/Tag";
 
 interface PostProps {
   post: Post;
@@ -36,7 +37,9 @@ export default function BlogEntry(props: PostProps) {
       <div className={styles.tags}>
         {post.tags.map((tag) => (
           <Link href={`/blog/tag/${tag}`} key={tag}>
-            <a aria-label={`${tag} tag`}>#{tag}</a>
+            <a>
+              <Tag>{tag}</Tag>
+            </a>
           </Link>
         ))}
       </div>

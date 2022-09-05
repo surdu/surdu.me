@@ -1,5 +1,13 @@
 const projects = [
   {
+    title: "surdu.me",
+    year: 2022,
+    description: "My personal website, built with NextJS",
+    sourceUrl: "https://github.com/surdu/surdu.me",
+    tags: ["code"],
+  },
+
+  {
     title: "Aperture Science's Calibration Core",
     year: 2020,
     description: "A prop from Valve's game 'The Lab'",

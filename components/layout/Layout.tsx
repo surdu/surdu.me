@@ -38,7 +38,7 @@ export default function Layout({ children }: LayoutProps) {
       <Meta />
       <SkipToContent />
       <Header />
-      <main className={styles.main} id="mainContent">
+      <main className={styles.main} id="mainContent" aria-label="Main content">
         {children}
       </main>
       <Footer />

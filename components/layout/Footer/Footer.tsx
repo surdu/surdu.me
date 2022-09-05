@@ -3,7 +3,7 @@ import styles from "./Footer.module.scss";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} aria-label="Footer">
       <div>
         &copy;
         <span className={styles.blue}>&nbsp;{new Date().getFullYear()} </span>

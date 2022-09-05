@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Tag from "~/components/Tag";
 import { Project } from "~/lib/project";
 
 import styles from "./ProjectEntry.module.scss";
@@ -20,7 +21,9 @@ export default function ProjectEntry({ project }: ProjectEntryProps) {
       <div className={styles.tags}>
         {project.tags.map((tag) => (
           <Link href={`/projects/tag/${tag}`} key={tag}>
-            <a aria-label={`${tag} tag`}>#{tag}</a>
+            <a>
+              <Tag>{tag}</Tag>
+            </a>
           </Link>
         ))}
       </div>

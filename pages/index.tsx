@@ -17,11 +17,11 @@ export default function Home(props: HomeProps) {
   return (
     <Layout>
       <div>
-        <h2>Latest Blog Post</h2>
+        <h1>Latest Blog Post</h1>
         <BlogEntry post={latestPost} />
       </div>
       <div>
-        <h2>My Latest Projects</h2>
+        <h1>My Latest Projects</h1>
         <div className={styles.projects}>
           {latestProjects.map((project, index) => (
             <ProjectEntry key={index} project={project} />
