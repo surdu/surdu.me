@@ -10,10 +10,11 @@ import Tag from "~/components/Tag";
 interface PostProps {
   post: Post;
   className?: string;
+  showTags?: boolean;
 }
 
 export default function BlogEntry(props: PostProps) {
-  const { post, className } = props;
+  const { post, className, showTags = true } = props;
 
   const rawDate = new Date(post.date);
   const date = new Intl.DateTimeFormat("en-uk", {
@@ -38,15 +39,17 @@ export default function BlogEntry(props: PostProps) {
       <div className={styles.synopsis}>
         <Markdown>{post.synopsis}</Markdown>
       </div>
-      <div className={styles.tags}>
-        {post.tags.map((tag) => (
-          <Link href={`/blog/tag/${tag}`} key={tag}>
-            <a>
-              <Tag>{tag}</Tag>
-            </a>
-          </Link>
-        ))}
-      </div>
+      {showTags && (
+        <div className={styles.tags}>
+          {post.tags.map((tag) => (
+            <Link href={`/blog/tag/${tag}`} key={tag}>
+              <a>
+                <Tag>{tag}</Tag>
+              </a>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

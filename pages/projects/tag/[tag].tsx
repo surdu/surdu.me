@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Layout from "~/components/Layout";
 import ProjectEntry from "~/components/ProjectEntry/ProjectEntry";
 import Tag from "~/components/Tag";
@@ -13,12 +14,18 @@ interface ProjectsByTagProps {
 export default function ProjectsByTag({ projects, tag }: ProjectsByTagProps) {
   return (
     <Layout>
-      <h1>
-        Projects tagged with <Tag className="outlined">{tag}</Tag>
+      <Head>
+        <title>Projects tagged with &quot;{tag}&quot;</title>
+      </Head>
+
+      <h1 aria-label={`Projects tagged with hashtag ${tag}`}>
+        <span aria-hidden="true">
+          Projects tagged with <span className="outlined">#{tag}</span>
+        </span>
       </h1>
       <div className={styles.projects}>
         {projects.map((project, index) => (
-          <ProjectEntry project={project} key={index} />
+          <ProjectEntry project={project} key={index} showTags={false} />
         ))}
       </div>
     </Layout>

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 import Layout from "~/components/Layout";
 import { getAllPosts, getPostsTags, Post } from "~/lib/post";
@@ -12,12 +13,17 @@ interface BlogPostsByTagProps {
 export default function BlogPostsByTag({ posts, tag }: BlogPostsByTagProps) {
   return (
     <Layout>
-      <h1>
-        Posts tagged with <span className="outlined">#{tag}</span>
+      <Head>
+        <title>Posts tagged with &quot;{tag}&quot;</title>
+      </Head>
+      <h1 aria-label={`Posts tagged with hashtag ${tag}`}>
+        <span aria-hidden="true">
+          Posts tagged with <span className="outlined">#{tag}</span>
+        </span>
       </h1>
       <div className={styles.posts}>
         {posts.map((post) => (
-          <BlogEntry post={post} key={post.url} />
+          <BlogEntry post={post} key={post.url} showTags={false} />
         ))}
       </div>
     </Layout>

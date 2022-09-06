@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Layout>
       <Head>
-        <title>About Me</title>
+        <title>About Nicu Surdu</title>
       </Head>
       <h1>Hello friend 👋</h1>
       <p>

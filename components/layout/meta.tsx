@@ -12,7 +12,7 @@ export default function Meta() {
       {/* TODO: make this dynamic */}
       <meta name="theme-color" content="#fff" />
 
-      <title>Surdu Nicu</title>
+      <title>Nicu Surdu</title>
 
       <link
         rel="apple-touch-icon"

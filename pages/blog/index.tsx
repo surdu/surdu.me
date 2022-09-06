@@ -14,7 +14,7 @@ export default function Blog({ posts, featuredPost }: BlogProps) {
   return (
     <Layout>
       <Head>
-        <title>The Surdu Blog</title>
+        <title>Nicu Surdu&apos;s blog posts</title>
       </Head>
 
       <h1 className={styles.pageTitle}>Blog</h1>

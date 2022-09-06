@@ -14,7 +14,7 @@ export default function Footer() {
         <Link href="/legal/terms">
           <a>Terms and Conditions</a>
         </Link>
-        &bull;
+        <span aria-hidden="true">&bull;</span>
         <Link href="/legal/disclaimer">
           <a>Disclaimer</a>
         </Link>

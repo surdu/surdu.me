@@ -6,9 +6,12 @@ import styles from "./ProjectEntry.module.scss";
 
 interface ProjectEntryProps {
   project: Project;
+  showTags?: boolean;
 }
 
-export default function ProjectEntry({ project }: ProjectEntryProps) {
+export default function ProjectEntry(props: ProjectEntryProps) {
+  const { project, showTags = true } = props;
+
   return (
     <div className={styles.project}>
       <Link href={project.sourceUrl}>
@@ -20,15 +23,17 @@ export default function ProjectEntry({ project }: ProjectEntryProps) {
         {project.year}
       </time>
       <div className={styles.description}>{project.description}</div>
-      <div className={styles.tags}>
-        {project.tags.map((tag) => (
-          <Link href={`/projects/tag/${tag}`} key={tag}>
-            <a>
-              <Tag>{tag}</Tag>
-            </a>
-          </Link>
-        ))}
-      </div>
+      {showTags && (
+        <div className={styles.tags}>
+          {project.tags.map((tag) => (
+            <Link href={`/projects/tag/${tag}`} key={tag}>
+              <a>
+                <Tag>{tag}</Tag>
+              </a>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
