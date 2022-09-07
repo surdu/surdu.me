@@ -1,0 +1,10 @@
+.socialIcon {
+  height: 3rem;
+  color: var(--text-color);
+  transition: color 0.5;
+  vertical-align: middle;
+
+  &:hover {
+    color: var(--link-color);
+  }
+}

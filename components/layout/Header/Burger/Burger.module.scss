@@ -1,0 +1,43 @@
+@use "~/styles/theme";
+
+.button {
+  padding: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+
+  @media (min-width: theme.$breakpont-mobile) {
+    display: none;
+  }
+}
+
+.burger {
+  position: relative;
+  width: 2.5rem;
+  height: 2.2rem;
+
+  &::before,
+  &::after {
+    content: " ";
+  }
+}
+
+.middle,
+.burger::before,
+.burger::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0.3rem;
+  background-color: var(--text-color);
+  border-radius: 0.15rem;
+}
+
+.middle {
+  top: calc(50% - 0.15rem);
+}
+
+.burger::after {
+  bottom: 0;
+}

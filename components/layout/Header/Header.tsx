@@ -1,17 +1,27 @@
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faTwitter,
-  faStackOverflow,
-} from "@fortawesome/free-brands-svg-icons";
 
 import ThemeToggle from "~/components/ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
 import Menu from "~/components/Layout/Header/Menu/Menu";
 import Logo from "./logo.svg";
+import Social from "~/components/Layout/Header/Social/Social";
+import Burger from "~/components/Layout/Header/Burger/Burger";
 
 export default function Header() {
+  const [showMenu, setShowMenu] = useState(false);
+
+  useEffect(
+    function updateBodyClasses() {
+      if (showMenu) {
+        document.body.classList.add("menuShown");
+      } else {
+        document.body.classList.remove("menuShown");
+      }
+    },
+    [showMenu]
+  );
+
   return (
     <header className={styles.header} aria-label="Page header">
       <Link href="/">
@@ -19,27 +29,11 @@ export default function Header() {
           <Logo className={styles.logo} aria-label="Surdu's Logo" />
         </a>
       </Link>
-      <Menu />
-      <div className={styles.rightWrap} aria-label="">
-        <Link href="https://github.com/surdu">
-          <a aria-label="My GitHub page">
-            <FontAwesomeIcon icon={faGithub} className={styles.socialIcon} />
-          </a>
-        </Link>
-        <Link href="https://stackoverflow.com/users/460750/nicu-surdu">
-          <a aria-label="My StackOverflow page">
-            <FontAwesomeIcon
-              icon={faStackOverflow}
-              className={styles.socialIcon}
-            />
-          </a>
-        </Link>
-        <Link href="https://twitter.com/surdume">
-          <a aria-label="My Twitter page">
-            <FontAwesomeIcon icon={faTwitter} className={styles.socialIcon} />
-          </a>
-        </Link>
+      <Menu open={showMenu} />
+      <div className={styles.rightWrap}>
+        <Social className={styles.socialIcons} />
         <ThemeToggle />
+        <Burger onClick={() => setShowMenu(!showMenu)} open={showMenu} />
       </div>
     </header>
   );
