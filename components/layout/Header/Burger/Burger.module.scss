@@ -1,6 +1,7 @@
 @use "~/styles/theme";
 
 .button {
+  position: relative;
   padding: 1rem;
   background: none;
   border: none;
@@ -12,10 +13,12 @@
   }
 }
 
+$size: 2.5rem;
+
 .burger {
   position: relative;
-  width: 2.5rem;
-  height: 2.2rem;
+  width: $size;
+  height: $size;
 
   &::before,
   &::after {
@@ -40,4 +43,20 @@
 
 .burger::after {
   bottom: 0;
+}
+
+.open {
+  .middle {
+    display: none;
+  }
+
+  .burger::before {
+    transform: rotate(45deg);
+    margin-top: 1.1rem;
+  }
+
+  .burger::after {
+    transform: rotate(-45deg);
+    margin-bottom: 1.1rem;
+  }
 }

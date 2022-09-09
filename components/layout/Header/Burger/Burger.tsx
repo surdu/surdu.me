@@ -1,22 +1,29 @@
 import clsx from "clsx";
+import { forwardRef, HTMLAttributes } from "react";
 import styles from "./Burger.module.scss";
 
-interface BurgerProps {
+interface BurgerProps extends HTMLAttributes<HTMLButtonElement> {
   open: boolean;
   onClick: () => void;
 }
 
-export default function Burger(props: BurgerProps) {
-  const { open, onClick } = props;
+export default forwardRef<HTMLButtonElement, BurgerProps>(function Burger(
+  props,
+  ref
+) {
+  const { open, onClick, className, ...rest } = props;
 
   return (
     <button
-      className={clsx(styles.button, { [styles.open]: open })}
+      ref={ref}
+      className={clsx(styles.button, { [styles.open]: open }, className)}
+      aria-label={open ? "Close Menu" : "Open Menu"}
       onClick={onClick}
+      {...rest}
     >
       <div className={styles.burger}>
         <div className={styles.middle}></div>
       </div>
     </button>
   );
-}
+});

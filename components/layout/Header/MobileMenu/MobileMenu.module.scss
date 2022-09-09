@@ -1,0 +1,66 @@
+@use "~/styles/theme";
+@use "~/styles/vars";
+
+$menuWidth: 20rem;
+
+.burger {
+  margin-bottom: 3rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  visibility: hidden;
+
+  transition: transform 0s, visibility 0s;
+  transition-delay: vars.$transitionDuration;
+
+  transform: translateY(-100vh);
+
+  .sideMenu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: $menuWidth;
+    background-color: var(--background-color);
+    text-align: right;
+    padding-top: 3.7rem;
+    padding-right: 4rem;
+    transform: translateX(calc($menuWidth + (4rem * 2)));
+    transition: transform vars.$transitionDuration;
+  }
+
+  &.open {
+    transform: translateY(0);
+    transition: none;
+    visibility: visible;
+
+    .sideMenu {
+      transform: translateX(0);
+    }
+  }
+}
+
+.social {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+@media (min-width: theme.$breakpont-mobile) {
+  .overlay {
+    display: none;
+  }
+}
+

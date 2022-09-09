@@ -38,9 +38,26 @@
   gap: 2rem;
 }
 
+.socialIcons {
+  display: flex;
+  width: 13rem;
+  gap: 2rem;
+}
+
+.socialIcon {
+  height: 3rem;
+  color: var(--text-color);
+  transition: color 0.5;
+  vertical-align: middle;
+
+  &:hover {
+    color: var(--link-color);
+  }
+}
 
 @media (max-width: theme.$breakpont-mobile) {
-  .socialIcons {
+  .socialIcons,
+  .menu {
     display: none;
   }
 }

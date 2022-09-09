@@ -7,6 +7,7 @@ import Menu from "~/components/Layout/Header/Menu/Menu";
 import Logo from "./logo.svg";
 import Social from "~/components/Layout/Header/Social/Social";
 import Burger from "~/components/Layout/Header/Burger/Burger";
+import MobileMenu from "~/components/Layout/Header/MobileMenu/MobileMenu";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
@@ -23,18 +24,32 @@ export default function Header() {
   );
 
   return (
-    <header className={styles.header} aria-label="Page header">
-      <Link href="/">
-        <a tabIndex={0}>
-          <Logo className={styles.logo} aria-label="Surdu's Logo" />
-        </a>
-      </Link>
-      <Menu open={showMenu} />
-      <div className={styles.rightWrap}>
-        <Social className={styles.socialIcons} />
-        <ThemeToggle />
-        <Burger onClick={() => setShowMenu(!showMenu)} open={showMenu} />
-      </div>
-    </header>
+    <>
+      <header className={styles.header} aria-label="Page header">
+        <Link href="/">
+          <a tabIndex={0}>
+            <Logo className={styles.logo} aria-label="Surdu's Logo" />
+          </a>
+        </Link>
+
+        <Menu className={styles.menu} />
+
+        <div className={styles.rightWrap}>
+          <div className={styles.socialIcons}>
+            <Social className={styles.socialIcon} />
+          </div>
+
+          <ThemeToggle />
+
+          <Burger
+            onClick={() => setShowMenu(!showMenu)}
+            open={false}
+            aria-hidden={showMenu}
+          />
+        </div>
+      </header>
+
+      <MobileMenu open={showMenu} onClose={() => setShowMenu(false)} />
+    </>
   );
 }
