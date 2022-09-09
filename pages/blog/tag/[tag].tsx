@@ -1,6 +1,6 @@
-import Head from "next/head";
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 import Layout from "~/components/Layout";
+import Meta from "~/components/Meta";
 import { getAllPosts, getPostsTags, Post } from "~/lib/post";
 
 import styles from "./tag.module.scss";
@@ -13,9 +13,8 @@ interface BlogPostsByTagProps {
 export default function BlogPostsByTag({ posts, tag }: BlogPostsByTagProps) {
   return (
     <Layout>
-      <Head>
-        <title>Posts tagged with &quot;{tag}&quot;</title>
-      </Head>
+      <Meta title={`Posts tagged with "${tag}"`} />
+
       <h1 aria-label={`Posts tagged with hashtag ${tag}`}>
         <span aria-hidden="true">
           Posts tagged with <span className="outlined">#{tag}</span>

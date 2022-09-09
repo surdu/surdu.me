@@ -24,7 +24,7 @@ export default function BlogEntry(props: PostProps) {
 
   return (
     <div className={clsx(styles.post, className)}>
-      <Link href={post.url}>
+      <Link href={`/${post.url}`}>
         <a className={styles.title}>
           <h2>{post.title}</h2>
         </a>

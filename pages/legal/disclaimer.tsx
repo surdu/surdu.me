@@ -1,9 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 import Layout from "~/components/Layout";
+import Meta from "~/components/Meta";
 
 export default function Disclaimer() {
   return (
     <Layout>
+      <Meta title="Disclaimer" />
+
       <h1>Disclaimer</h1>
       <p>Last updated: August 20, 2022</p>
       <h1>Interpretation and Definitions</h1>

@@ -1,9 +1,12 @@
 import Layout from "~/components/Layout";
+import Meta from "~/components/Meta";
 
 /* eslint-disable react/no-unescaped-entities */
 export default function Terms() {
   return (
     <Layout>
+      <Meta title="Terms and Conditions" />
+
       <h1>Terms and Conditions</h1>
       <p>Last updated: August 20, 2022</p>
       <p>

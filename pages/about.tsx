@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Layout from "~/components/Layout";
+import Meta from "~/components/Meta";
 
 export default function Home() {
   return (
     <Layout>
-      <Head>
-        <title>About Nicu Surdu</title>
-      </Head>
+      <Meta title="About Nicu Surdu" />
+
       <h1>Hello friend 👋</h1>
       <p>
         My name is Nicu Surdu. I&apos;m a software engineer by day, and a

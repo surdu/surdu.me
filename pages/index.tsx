@@ -1,5 +1,6 @@
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 import Layout from "~/components/Layout";
+import Meta from "~/components/Meta";
 import ProjectEntry from "~/components/ProjectEntry/ProjectEntry";
 import { getAllPosts, Post } from "~/lib/post";
 import { getAllProjects, Project } from "~/lib/project";
@@ -16,6 +17,7 @@ export default function Home(props: HomeProps) {
 
   return (
     <Layout>
+      <Meta />
       <div>
         <h1>Latest Blog Post</h1>
         <BlogEntry post={latestPost} />

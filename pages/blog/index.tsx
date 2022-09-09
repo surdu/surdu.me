@@ -1,9 +1,9 @@
 import Layout from "~/components/Layout";
 import { getAllPosts, Post } from "~/lib/post";
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
+import Meta from "~/components/Meta";
 
 import styles from "./Blog.module.scss";
-import Head from "next/head";
 
 interface BlogProps {
   posts: Post[];
@@ -13,9 +13,7 @@ interface BlogProps {
 export default function Blog({ posts, featuredPost }: BlogProps) {
   return (
     <Layout>
-      <Head>
-        <title>Nicu Surdu&apos;s blog posts</title>
-      </Head>
+      <Meta title="Nicu Surdu's blog posts" />
 
       <h1 className={styles.pageTitle}>Blog</h1>
 

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "~/components/Layout";
+import Meta from "~/components/Meta";
 import ProjectEntry from "~/components/ProjectEntry/ProjectEntry";
 import { getAllProjects, Project } from "~/lib/project";
 
@@ -14,9 +15,7 @@ export default function Projects(props: ProjectsProps) {
 
   return (
     <Layout>
-      <Head>
-        <title>Projects by Nicu Surdu</title>
-      </Head>
+      <Meta title="Projects by Nicu Surdu" />
 
       <h1 className={styles.pageTitle}>My Projects</h1>
 

@@ -1,12 +1,11 @@
-import Head from "next/head";
-
-import styles from "./BlogPage.module.scss";
-
 import Layout from "~/components/Layout";
 import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
 import Markdown from "~/components/Markdown";
 import Comments from "~/components/Comments";
 import BackToTop from "~/components/BackToTop/BackToTop";
+import Meta from "~/components/Meta";
+
+import styles from "./BlogPage.module.scss";
 
 interface BlogPostsProps {
   post: Post;
@@ -20,9 +19,8 @@ export default function BlogPosts({ post }: BlogPostsProps) {
   const datetime = rawDate.toISOString().split("T")[0];
   return (
     <Layout>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
+      <Meta title={post.title} post={post} />
+
       <h1 className={styles.title}>{post.title}</h1>
       <time
         className={styles.date}
@@ -46,13 +44,13 @@ interface Params {
   params: PostParams;
 }
 
-export async function getStaticProps({ params }: Params) {
-  const post = await getPostByParams(params);
+export function getStaticProps({ params }: Params) {
+  const post = getPostByParams(params);
   return { props: { post } };
 }
 
-export async function getStaticPaths() {
-  const posts = await getAllPosts();
+export function getStaticPaths() {
+  const posts = getAllPosts();
 
   return {
     paths: posts.map((post) => {

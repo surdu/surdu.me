@@ -8,7 +8,7 @@ export default function Footer() {
         &copy;
         <span className={styles.blue}>&nbsp;{new Date().getFullYear()} </span>
         <span className={styles.yellow}>&nbsp;Nicu </span>
-        <span className={styles.red}>&nbsp;Surdu </span>
+        <span className={styles.red}>&nbsp;Surdu&nbsp;</span>
       </div>
       <div className={styles.legal}>
         <Link href="/legal/terms">

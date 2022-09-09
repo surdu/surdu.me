@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "~/components/Layout";
+import Meta from "~/components/Meta";
 import ProjectEntry from "~/components/ProjectEntry/ProjectEntry";
 import Tag from "~/components/Tag";
 import { getAllProjects, getProjectsTags, Project } from "~/lib/project";
@@ -14,9 +15,7 @@ interface ProjectsByTagProps {
 export default function ProjectsByTag({ projects, tag }: ProjectsByTagProps) {
   return (
     <Layout>
-      <Head>
-        <title>Projects tagged with &quot;{tag}&quot;</title>
-      </Head>
+      <Meta title={`Projects tagged with "${tag}"`} />
 
       <h1 aria-label={`Projects tagged with hashtag ${tag}`}>
         <span aria-hidden="true">
