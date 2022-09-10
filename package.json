@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "setup-github-pages": "touch ./out/.nojekyll && cp CNAME ./out",
     "build": "next build && next export",
     "test-build": "npm run build && cd out && python3 -m http.server",
     "start": "next start",
