@@ -10,6 +10,14 @@ $dangerColor: #F43439;
   font-size: 1.7rem;
   border-left-color: $defaultColor;
   background-color: rgba($defaultColor, 0.2);
+
+  & p:first-child {
+    margin-top: 0;
+  }
+
+  & p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .title {
@@ -40,4 +48,5 @@ $dangerColor: #F43439;
   border-radius: 0;
   font-style: italic;
   border-left-width: 0.3rem;
+  padding: 1rem 2rem;
 }

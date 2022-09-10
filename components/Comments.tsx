@@ -24,7 +24,7 @@ export default function Comments({ post }: CommentsProps) {
           backgroundColor: "var(--background-color)",
           position: "absolute",
           top: "222px",
-          left: "100px",
+          left: "95px",
           zIndex: 2222,
         }}
       ></div>

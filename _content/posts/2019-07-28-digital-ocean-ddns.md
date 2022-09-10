@@ -61,7 +61,7 @@ After you created the file, let's give it execution rights by executing the foll
 chmod +x update-dns.sh
 ```
 
-Now let's go step by step and see what we need to change and what the script actually does.
+Now let's go step by step and see what we need to change and what the script does.
 
 The things we need to change are at the top of the file. We'll start by changing line 3 where we need to add the access token that we generated above in step 1 on DigitalOcean. Should look something like this:
 
@@ -149,7 +149,7 @@ do
 done
 ```
 
-As for what the script actually does:
+As for what the script does:
 
 ```bash
 IP=$(curl -s http://checkip.amazonaws.com/)
@@ -184,7 +184,7 @@ Adding the following line in your `crontab` will do just that:
 
 And just like that we have our own dynamic DNS system up and running.
 
-Alternatively to the `cron` solution, if you have an Asus router and you can run [Asuswrt-Merlin firmware](https://www.asuswrt-merlin.net/) on it, you could set the DNS update script to be executed by the router every time your IP changes. Please see [their docs](https://github.com/RMerl/asuswrt-merlin.ng/wiki/Custom-DDNS) and the [adaptation of our script](https://github.com/RMerl/asuswrt-merlin.ng/wiki/DDNS-Sample-Scripts#digitalocean) in order to achieve this.
+Alternatively to the `cron` solution, if you have an Asus router and you can run [Asuswrt-Merlin firmware](https://www.asuswrt-merlin.net/) on it, you could set the DNS update script to be executed by the router every time your IP changes. Please see [their docs](https://github.com/RMerl/asuswrt-merlin.ng/wiki/Custom-DDNS) and the [adaptation of our script](https://github.com/RMerl/asuswrt-merlin.ng/wiki/DDNS-Sample-Scripts#digitalocean) to achieve this.
 
 Others routers should support this, so check your router's manual to see if you can set up a custom dynamic DNS script on your router.
 
