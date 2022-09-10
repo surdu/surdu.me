@@ -2,8 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import clsx from "clsx";
 
-import Social from "~/components/Layout/Header/Social/Social";
-
 import styles from "./Menu.module.scss";
 
 enum Page {

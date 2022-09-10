@@ -3,11 +3,11 @@ import Link from "next/link";
 
 import ThemeToggle from "~/components/ThemeToggle/ThemeToggle";
 import styles from "./Header.module.scss";
-import Menu from "~/components/Layout/Header/Menu/Menu";
+import Menu from "./Menu/Menu";
 import Logo from "./logo.svg";
-import Social from "~/components/Layout/Header/Social/Social";
-import Burger from "~/components/Layout/Header/Burger/Burger";
-import MobileMenu from "~/components/Layout/Header/MobileMenu/MobileMenu";
+import Social from "./Social/Social";
+import Burger from "./Burger/Burger";
+import MobileMenu from "./MobileMenu/MobileMenu";
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);

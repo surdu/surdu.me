@@ -2,9 +2,6 @@
 
 module.exports = {
   webpack(config) {
-    // config.reactStrictMode = true;
-    // config.swcMinify = true;
-
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
@@ -12,5 +9,7 @@ module.exports = {
 
     return config;
   },
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
