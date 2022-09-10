@@ -1,5 +1,5 @@
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
-import Layout from "~/components/Layout/Layout";
+import Layout from "~/components/layout/Layout";
 import Meta from "~/components/Meta";
 import { getAllPosts, getPostsTags, Post } from "~/lib/post";
 

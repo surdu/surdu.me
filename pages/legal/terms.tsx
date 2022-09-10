@@ -1,4 +1,4 @@
-import Layout from "~/components/Layout/Layout";
+import Layout from "~/components/layout/Layout";
 import Meta from "~/components/Meta";
 
 /* eslint-disable react/no-unescaped-entities */

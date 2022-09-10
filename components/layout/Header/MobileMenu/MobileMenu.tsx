@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import Menu from "~/components/Layout/Header/Menu/Menu";
-import Social from "~/components/Layout/Header/Social/Social";
-import Burger from "~/components/Layout/Header/Burger/Burger";
+import Menu from "~/components/layout/Header/Menu/Menu";
+import Social from "~/components/layout/Header/Social/Social";
+import Burger from "~/components/layout/Header/Burger/Burger";
 
 import styles from "./MobileMenu.module.scss";
 import { useEffect, useRef } from "react";

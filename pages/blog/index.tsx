@@ -1,9 +1,9 @@
-import Layout from "~/components/Layout/Layout";
+import Layout from "~/components/layout/Layout";
 import { getAllPosts, Post } from "~/lib/post";
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 import Meta from "~/components/Meta";
 
-import styles from "./Blog.module.scss";
+import styles from "./blog.module.scss";
 
 interface BlogProps {
   posts: Post[];
