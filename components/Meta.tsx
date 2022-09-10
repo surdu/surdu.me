@@ -64,11 +64,11 @@ export default function Meta(props: MetaProps) {
 
           <meta
             name="twitter:image"
-            content={`https://${config.domain}/assets/images/apc/connections.jpg`}
+            content={`https://${config.domain}/post-covers/${post.slug}.png`}
           />
           <meta
             property="og:image"
-            content={`https://${config.domain}/assets/images/apc/connections.jpg`}
+            content={`https://${config.domain}/post-covers/${post.slug}.png`}
             key="fbDesc"
           />
 

@@ -1,5 +1,11 @@
 import Layout from "~/components/Layout";
-import { getAllPosts, getPostByParams, Post, PostParams } from "~/lib/post";
+import {
+  generatePostCover,
+  getAllPosts,
+  getPostByParams,
+  Post,
+  PostParams,
+} from "~/lib/post";
 import Markdown from "~/components/Markdown";
 import Comments from "~/components/Comments";
 import BackToTop from "~/components/BackToTop/BackToTop";
@@ -44,8 +50,9 @@ interface Params {
   params: PostParams;
 }
 
-export function getStaticProps({ params }: Params) {
+export async function getStaticProps({ params }: Params) {
   const post = getPostByParams(params);
+  await generatePostCover(post);
   return { props: { post } };
 }
 

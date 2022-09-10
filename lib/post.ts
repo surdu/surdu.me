@@ -1,12 +1,15 @@
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
+import { createCanvas, loadImage, registerFont } from "canvas";
+import drawMultilineText from "canvas-multiline-text";
 
 const postsDirectory = join(process.cwd(), "_content/posts");
 
 export interface Post {
   title: string;
   url: string;
+  slug: string;
   date: number;
   markdown: string;
   synopsis: string;
@@ -22,13 +25,15 @@ export function getPost(filename: string): Post {
   const fileParts = filename.split(".").slice(0, -1).join(".").split("-");
   const dateParts = fileParts.slice(0, 3);
   const date = Date.parse(dateParts.join("-"));
-  const url = `${dateParts.join("/")}/${fileParts.slice(3).join("-")}.html`;
+  const slug = fileParts.slice(3).join("-");
+  const url = `${dateParts.join("/")}/${slug}.html`;
 
   const synopsis = content.trim().split("\n")[0];
 
   return {
     title: data.title,
     url,
+    slug,
     date,
     markdown: content,
     synopsis,
@@ -100,4 +105,52 @@ export function getPostsTags() {
   });
 
   return Array.from(tags);
+}
+
+export function generatePostCover(post: Post) {
+  return new Promise(async (resolve) => {
+    const size = { width: 2400, height: 1260 };
+
+    registerFont("lib/resources/rubik.ttf", {
+      family: "Rubik",
+    });
+
+    const avatar = await loadImage("lib/resources/avatar.png");
+    const logo = await loadImage("lib/resources/logo.png");
+
+    const canvas = createCanvas(size.width, size.height);
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "#22272E";
+    ctx.fillRect(0, 0, size.width, size.height);
+
+    ctx.font = '100px "Rubik"';
+    ctx.fillStyle = "#ADBAC6";
+    drawMultilineText(ctx, post.title, {
+      rect: {
+        x: 100,
+        y: 200,
+        width: 1800,
+        height: 600,
+      },
+      font: "Rubik",
+      minFontSize: 100,
+      maxFontSize: 100,
+    });
+
+    ctx.font = '70px "Rubik"';
+    ctx.fillText("Surdu Nicolae", 400, 1015);
+
+    ctx.font = '50px "Rubik"';
+    ctx.fillText("www.surdu.me", 400, 1100);
+
+    ctx.drawImage(avatar, 100, 917, 250, 250);
+    ctx.drawImage(logo, 1800, 1000, 500, 100);
+
+    const stream = canvas.createPNGStream();
+    const imagesFolder = join(process.cwd(), "public/post-covers");
+    const out = fs.createWriteStream(join(imagesFolder, `/${post.slug}.png`));
+    stream.pipe(out);
+    out.on("finish", resolve);
+  });
 }
