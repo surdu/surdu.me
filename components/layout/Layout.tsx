@@ -1,6 +1,6 @@
 import styles from "./Layout.module.scss";
 
-import Header from "./Header";
+import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import { useEffect } from "react";
 import SkipToContent from "~/components/SkipToContent/SkipToContent";

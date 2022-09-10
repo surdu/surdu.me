@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Layout from "~/components/Layout";
+import Layout from "~/components/Layout/Layout";
 import Meta from "~/components/Meta";
 import ProjectEntry from "~/components/ProjectEntry/ProjectEntry";
 import Tag from "~/components/Tag";
