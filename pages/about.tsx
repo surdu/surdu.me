@@ -21,8 +21,7 @@ export default function Home() {
 
       <p>
         You can contact me on <a href="https://twitter.com/surdume">Twitter</a>,
-        or even better, on my email: <strong>nicu</strong> at{" "}
-        <strong>surdu</strong> period <strong>me</strong>
+        or even better, by email: besigye_pocky@simplelogin.com
       </p>
     </Layout>
   );

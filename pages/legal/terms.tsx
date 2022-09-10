@@ -292,7 +292,7 @@ export default function Terms() {
         contact us:
       </p>
       <ul>
-        <li>By email: nicu@surdu.me</li>
+        <li>By email: besigye_pocky@simplelogin.com</li>
       </ul>
     </Layout>
   );

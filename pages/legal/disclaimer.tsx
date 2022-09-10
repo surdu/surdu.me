@@ -155,7 +155,7 @@ export default function Disclaimer() {
         If you have any questions about this Disclaimer, You can contact Us:
       </p>
       <ul>
-        <li>By email: nicu@surdu.me</li>
+        <li>By email: besigye_pocky@simplelogin.com</li>
       </ul>
     </Layout>
   );
