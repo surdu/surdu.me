@@ -1,5 +1,9 @@
 @use "vars";
 
+:root {
+  --main-padding: 2rem;
+}
+
 html,
 body {
   padding: 0;
@@ -21,7 +25,7 @@ html {
 
 body {
   font-size: 1.9rem;
-  padding: vars.$pagePadding;
+  padding: var(--main-padding);
 
   &.menuShown {
     overflow: hidden;
@@ -31,16 +35,12 @@ body {
 html,
 body,
 #__next {
-  min-height: calc(100vh - (#{vars.$pagePadding} * 2));
+  min-height: calc(100vh - (var(--main-padding) * 2));
 }
 
 #__next {
   display: flex;
   flex-direction: column;
-}
-
-#mainContent {
-  scroll-margin-top: 6rem;
 }
 
 img {

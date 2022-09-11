@@ -12,7 +12,7 @@
   padding: 0.5rem 4rem;
   background-color: var(--background-color);
   transition: background-color vars.$transitionDuration;
-  margin: 0 -#{vars.$pagePadding};
+  margin: 0 calc(var(--main-padding) * -1);
   margin-top: 1rem;
   z-index: 2;
 }
@@ -56,6 +56,10 @@
 }
 
 @media (max-width: theme.$breakpont-mobile) {
+  .header {
+    padding: 0.5rem 2rem;
+  }
+
   .socialIcons,
   .menu {
     display: none;

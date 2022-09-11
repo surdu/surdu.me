@@ -1,7 +1,19 @@
+@use "~/styles/theme";
+
 .main {
   width: 80%;
   max-width: 96rem;
   margin: 0 auto;
   margin-top: 5rem;
   flex: 1;
+}
+
+#mainContent {
+  scroll-margin-top: 6rem;
+}
+
+@media (max-width: theme.$breakpont-mobile) {
+  .main {
+    width: 100%;
+  }
 }

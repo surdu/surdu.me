@@ -1,3 +1,5 @@
+@use "~/styles/theme";
+
 .title {
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
@@ -28,3 +30,12 @@
   margin-top: 4rem;
   padding-top: 4rem;
 }
+
+@media (max-width: theme.$breakpont-mobile) {
+  .article pre {
+    margin-left: calc(var(--main-padding) * -1);
+    margin-right: calc(var(--main-padding) * -1);
+    max-width: 100vw;
+  }
+}
+

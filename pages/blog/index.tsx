@@ -3,7 +3,7 @@ import { getAllPosts, Post } from "~/lib/post";
 import BlogEntry from "~/components/BlogEntry/BlogEntry";
 import Meta from "~/components/Meta";
 
-import styles from "./blog.module.scss";
+import styles from "./Blog.module.scss";
 
 interface BlogProps {
   posts: Post[];

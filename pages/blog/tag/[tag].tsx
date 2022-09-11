@@ -3,7 +3,7 @@ import Layout from "~/components/Layout/Layout";
 import Meta from "~/components/Meta";
 import { getAllPosts, getPostsTags, Post } from "~/lib/post";
 
-import styles from "./tag.module.scss";
+import styles from "./Tag.module.scss";
 
 interface BlogPostsByTagProps {
   posts: Post[];

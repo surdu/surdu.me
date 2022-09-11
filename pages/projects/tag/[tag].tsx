@@ -1,11 +1,9 @@
-import Head from "next/head";
 import Layout from "~/components/Layout/Layout";
 import Meta from "~/components/Meta";
 import ProjectEntry from "~/components/ProjectEntry/ProjectEntry";
-import Tag from "~/components/Tag";
 import { getAllProjects, getProjectsTags, Project } from "~/lib/project";
 
-import styles from "./tag.module.scss";
+import styles from "./Tag.module.scss";
 
 interface ProjectsByTagProps {
   projects: Project[];

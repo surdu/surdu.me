@@ -1,3 +1,5 @@
+@use "~/styles/theme";
+
 .project {
   display: flex;
   flex-direction: column;
@@ -38,3 +40,10 @@
   font-size:1.8rem;
   gap: 1rem;
 }
+
+@media (max-width: theme.$breakpont-mobile) {
+  .project {
+    min-width: auto;
+  }
+}
+
