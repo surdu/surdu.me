@@ -43,7 +43,6 @@ export default function Meta(props: MetaProps) {
       <meta name="twitter:creator" content="@surdume" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} key="twDesc" />
-      <meta name="twitter:alt" content={title} />
 
       {/* Post */}
       {post && (
@@ -71,8 +70,6 @@ export default function Meta(props: MetaProps) {
             content={`https://${config.domain}/post-covers/${post.slug}.png`}
             key="fbDesc"
           />
-
-          {/* TODO: <meta property="og:image" content="article" /> */}
         </>
       )}
 

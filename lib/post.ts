@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import { join } from "path";
 import { createCanvas, loadImage, registerFont } from "canvas";
 import drawMultilineText from "canvas-multiline-text";
+import { stripMarkdown } from "~/lib/utils";
 
 const postsDirectory = join(process.cwd(), "_content/posts");
 
@@ -28,7 +29,7 @@ export function getPost(filename: string): Post {
   const slug = fileParts.slice(3).join("-");
   const url = `${dateParts.join("/")}/${slug}.html`;
 
-  const synopsis = content.trim().split("\n")[0];
+  const synopsis = stripMarkdown(content.trim().split("\n")[0]);
 
   return {
     title: data.title,

@@ -3,7 +3,6 @@ import clsx from "clsx";
 
 import styles from "./BlogEntry.module.scss";
 
-import Markdown from "~/components/Markdown";
 import { Post } from "~/lib/post";
 import Tag from "~/components/Tag";
 
@@ -36,9 +35,7 @@ export default function BlogEntry(props: PostProps) {
       >
         {date}
       </time>
-      <div className={styles.synopsis}>
-        <Markdown>{post.synopsis}</Markdown>
-      </div>
+      <div className={styles.synopsis}>{post.synopsis}</div>
       {showTags && (
         <div className={styles.tags}>
           {post.tags.map((tag) => (

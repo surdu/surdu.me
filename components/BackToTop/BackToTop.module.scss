@@ -1,3 +1,5 @@
+@use "~/styles/theme";
+
 $animationDuration: 0.3s;
 
 .button {
@@ -23,4 +25,10 @@ $animationDuration: 0.3s;
   display: block;
   bottom: 3rem;
   opacity: 1;
+}
+
+@media (max-width: theme.$breakpont-mobile) {
+  .button {
+    right: 3rem;
+  }
 }

@@ -16,7 +16,7 @@
 
   img {
     display: block;
-    max-width: 80%;
+    width: 80%;
     margin: 1rem auto;
   }
 
@@ -32,10 +32,16 @@
 }
 
 @media (max-width: theme.$breakpont-mobile) {
-  .article pre {
-    margin-left: calc(var(--main-padding) * -1);
-    margin-right: calc(var(--main-padding) * -1);
-    max-width: 100vw;
+  .article {
+    pre {
+      margin-left: calc(var(--main-padding) * -1);
+      margin-right: calc(var(--main-padding) * -1);
+      max-width: 100vw;
+    }
+
+    img {
+      width: 90%;
+    }
   }
 }
 
