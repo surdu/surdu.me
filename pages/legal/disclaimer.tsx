@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import Layout from "~/components/layout/Layout";
+import Layout from "~/components/Layout/Layout";
 import Meta from "~/components/Meta";
 
 export default function Disclaimer() {
