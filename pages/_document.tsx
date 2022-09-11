@@ -15,6 +15,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400&family=Rubik:wght@500&display=swap"
           rel="stylesheet"
         />
+        <script
+          defer
+          src="https://app.tinyanalytics.io/pixel/VwgdUjyKKvluXFEK"
+        ></script>
       </Head>
       <body>
         <script src="/no-flash.js" />
