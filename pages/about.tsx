@@ -1,28 +1,27 @@
 import Layout from "~/components/Layout/Layout";
+import Markdown from "~/components/Markdown";
 import Meta from "~/components/Meta";
 
+const content = `
+# Hello friend 👋
+
+My name is Nicu Surdu. I'm a software engineer by day, and a
+tinkerer by night. I enjoy writing good software for good people and
+using my free time to build and play with gadgets.
+
+From time to time I like to contribute to my or other's open source
+projects. You can find them all on my [GitHub page](https://github.com/surdu)
+or take a look on the [Projects](/projects) page, where I've picked my best ones.
+
+You can contact me on [Twitter](https://twitter.com/surdume),
+or even better, by email: besigye_pocky@simplelogin.com
+`;
+
 export default function Home() {
-  return (
-    <Layout>
-      <Meta title="About Nicu Surdu" />
-
-      <h1>Hello friend 👋</h1>
-      <p>
-        My name is Nicu Surdu. I&apos;m a software engineer by day, and a
-        tinkerer by night. I enjoy writing good software for good people and
-        using my free time to build and play with gadgets.
-      </p>
-
-      <p>
-        From time to time I like to contribute to open source and work on some
-        personal open source projects. You can find them all on my{" "}
-        <a href="https://github.com/surdu">GitHub page</a>
-      </p>
-
-      <p>
-        You can contact me on <a href="https://twitter.com/surdume">Twitter</a>,
-        or even better, by email: besigye_pocky@simplelogin.com
-      </p>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<Meta title="About Nicu Surdu" />
+			<Markdown>{content}</Markdown>
+		</Layout>
+	);
 }
