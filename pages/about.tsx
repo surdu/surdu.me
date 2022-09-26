@@ -1,6 +1,7 @@
 import Layout from "~/components/Layout/Layout";
 import Markdown from "~/components/Markdown";
 import Meta from "~/components/Meta";
+import config from "~/lib/config";
 
 const content = `
 # Hello friend 👋
@@ -14,7 +15,7 @@ projects. You can find them all on my [GitHub page](https://github.com/surdu)
 or take a look on the [Projects](/projects) page, where I've picked my best ones.
 
 You can contact me on [Twitter](https://twitter.com/surdume),
-or even better, by email: besigye_pocky@simplelogin.com
+or even better, by email: ${config.email}
 `;
 
 export default function Home() {
