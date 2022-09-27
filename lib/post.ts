@@ -174,14 +174,13 @@ export function generateRssFeed() {
 		description: "Personal blog of Nicu Surdu",
 		id: siteURL,
 		link: siteURL,
-		image: `${siteURL}/favicon.ico`,
-		favicon: `${siteURL}/favicon.ico`,
+		image: `${siteURL}/favicon/android-chrome-256x256.png`,
+		favicon: `${siteURL}/favicon/favicon.ico`,
 		copyright: `© ${date.getFullYear()} Nicu Surdu`,
 		updated: date,
 		generator: "Feed for Node.js",
 		feedLinks: {
 			rss2: `${siteURL}/rss/feed.xml`,
-			json: `${siteURL}/rss/feed.json`,
 		},
 		author,
 	});
@@ -193,14 +192,12 @@ export function generateRssFeed() {
 			title: post.title,
 			id: url,
 			link: url,
+			image: `${siteURL}/post-covers/${post.slug}.png`,
 			description: post.synopsis,
-			author: [author],
-			contributor: [author],
 			date: new Date(post.date),
 		});
 	});
 
 	fs.mkdirSync("./public/rss", { recursive: true });
 	fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
-	fs.writeFileSync("./public/rss/feed.json", feed.json1());
 }
