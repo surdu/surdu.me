@@ -20,7 +20,7 @@ export default function Social(props: SocialProps) {
 	return (
 		<>
 			<Link href="https://github.com/surdu">
-				<a aria-label="My GitHub page">
+				<a aria-label="My GitHub page" title="GitHub">
 					<FontAwesomeIcon
 						icon={faGithub}
 						className={clsx(styles.socialIcon, className)}
@@ -28,7 +28,7 @@ export default function Social(props: SocialProps) {
 				</a>
 			</Link>
 			<Link href="https://stackoverflow.com/users/460750/nicu-surdu">
-				<a aria-label="My StackOverflow page">
+				<a aria-label="My StackOverflow page" title="StackOverflow">
 					<FontAwesomeIcon
 						icon={faStackOverflow}
 						className={clsx(styles.socialIcon, className)}
@@ -36,7 +36,7 @@ export default function Social(props: SocialProps) {
 				</a>
 			</Link>
 			<Link href="https://twitter.com/surdume">
-				<a aria-label="My Twitter page">
+				<a aria-label="My Twitter page" title="Twitter">
 					<FontAwesomeIcon
 						icon={faTwitter}
 						className={clsx(styles.socialIcon, className)}
@@ -44,7 +44,7 @@ export default function Social(props: SocialProps) {
 				</a>
 			</Link>
 			<Link href="/rss/feed.xml">
-				<a aria-label="Blog RSS feed">
+				<a aria-label="Blog RSS feed" title="RSS Feed">
 					<FontAwesomeIcon
 						icon={faRssSquare}
 						className={clsx(styles.socialIcon, className)}

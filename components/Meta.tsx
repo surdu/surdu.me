@@ -20,87 +20,98 @@ export default function Meta(props: MetaProps) {
   const router = useRouter();
 
   return (
-    <Head>
-      <meta
-        content="width=device-width,initial-scale=1,viewport-fit=cover"
-        name="viewport"
-      />
+		<Head>
+			<meta
+				content="width=device-width,initial-scale=1,viewport-fit=cover"
+				name="viewport"
+			/>
 
-      <title>{title}</title>
-      <meta name="description" content={description} key="desc" />
-      <meta name="author" content="Nicu Surdu" />
+			<title>{title}</title>
+			<meta name="description" content={description} key="desc" />
+			<meta name="author" content="Nicu Surdu" />
 
-      {/* Facebook */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} key="fbDesc" />
-      <meta
-        property="og:url"
-        content={`https://${config.domain}${router.asPath}`}
-      />
+			{/* Facebook */}
+			<meta property="og:title" content={title} />
+			<meta property="og:description" content={description} key="fbDesc" />
+			<meta
+				property="og:url"
+				content={`https://${config.domain}${router.asPath}`}
+			/>
 
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content="@surdume" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} key="twDesc" />
+			{/* Twitter */}
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:creator" content="@surdume" />
+			<meta name="twitter:title" content={title} />
+			<meta name="twitter:description" content={description} key="twDesc" />
 
-      {/* Post */}
-      {post && (
-        <>
-          <meta property="og:type" content="article" />
+			{/* Post */}
+			{post && (
+				<>
+					<meta
+						property="article:published_time"
+						content={new Date(post.date).toISOString()}
+					/>
 
-          <meta name="description" content={post.synopsis} key="desc" />
-          <meta
-            property="og:description"
-            content={post.synopsis}
-            key="fbDesc"
-          />
-          <meta
-            name="twitter:description"
-            content={post.synopsis}
-            key="twDesc"
-          />
+					{/* <meta name="twitter:label1" content="Tagged with" />
+					<meta
+						name="twitter:data1"
+						content={post.tags.map((tag) => `#${tag}`).join(" ")}
+					/> */}
 
-          <meta
-            name="twitter:image"
-            content={`https://${config.domain}/post-covers/${post.slug}.png`}
-          />
-          <meta
-            property="og:image"
-            content={`https://${config.domain}/post-covers/${post.slug}.png`}
-            key="fbDesc"
-          />
-        </>
-      )}
+					<meta property="og:type" content="article" />
 
-      {/* TODO: make this dynamic */}
-      <meta name="theme-color" content="#fff" />
+					<meta name="description" content={post.synopsis} key="desc" />
+					<meta
+						property="og:description"
+						content={post.synopsis}
+						key="fbDesc"
+					/>
+					<meta
+						name="twitter:description"
+						content={post.synopsis}
+						key="twDesc"
+					/>
 
-      {/* Favicon */}
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/favicon/favicon-32x32.png"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="/favicon/favicon-16x16.png"
-      />
-      <link rel="manifest" href="/favicon/site.webmanifest" />
-      <link
-        rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
-        color="#000000"
-      />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
-    </Head>
-  );
+					<meta
+						name="twitter:image"
+						content={`https://${config.domain}/post-covers/${post.slug}.png`}
+					/>
+					<meta
+						property="og:image"
+						content={`https://${config.domain}/post-covers/${post.slug}.png`}
+						key="fbDesc"
+					/>
+				</>
+			)}
+
+			{/* TODO: make this dynamic */}
+			<meta name="theme-color" content="#fff" />
+
+			{/* Favicon */}
+			<link
+				rel="apple-touch-icon"
+				sizes="180x180"
+				href="/favicon/apple-touch-icon.png"
+			/>
+			<link
+				rel="icon"
+				type="image/png"
+				sizes="32x32"
+				href="/favicon/favicon-32x32.png"
+			/>
+			<link
+				rel="icon"
+				type="image/png"
+				sizes="16x16"
+				href="/favicon/favicon-16x16.png"
+			/>
+			<link rel="manifest" href="/favicon/site.webmanifest" />
+			<link
+				rel="mask-icon"
+				href="/favicon/safari-pinned-tab.svg"
+				color="#000000"
+			/>
+			<link rel="shortcut icon" href="/favicon/favicon.ico" />
+		</Head>
+	);
 }
