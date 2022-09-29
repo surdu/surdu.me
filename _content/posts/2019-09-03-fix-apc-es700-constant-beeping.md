@@ -1,6 +1,6 @@
 ---
 title:  "How I Fixed the Beeping Problem of My 'APC Back-UPS ES 700'"
-meta_image: /assets/images/apc/bad-caps.jpg
+synopsis: "When my APC UPS died on me, I thought I'd give repairing it a shot. Turns out, the fix was pretty straightforward."
 featured: true
 tags: [electronics]
 ---

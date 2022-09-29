@@ -1,5 +1,6 @@
 ---
 title:  "Use DigitalOcean as Dynamic DNS"
+synopsis: "I have a server at my home on which I host various test projects and I needed a dynamic DNS service, so I decided to buy a domain and handle the DNS update myself."
 tags: [devops]
 ---
 

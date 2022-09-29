@@ -1,6 +1,6 @@
 ---
 title:  "Make LineString Resolution Depend on Zoom Level in OpenLayers"
-date:   2010-12-20
+synopsis: "In this article will examine a solution to reduce the number of points in a route path, rendered inside OpenLayers, based on the zoom level of the map."
 tags: [js]
 ---
 

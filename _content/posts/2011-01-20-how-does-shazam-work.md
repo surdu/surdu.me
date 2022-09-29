@@ -1,6 +1,6 @@
 ---
 title:  "How Does Shazam Work ?"
-meta_image: /assets/images/shazam/1.png
+synopsis: "In this article, I'll try to explain as simply as possible what I've understood about how the famous song identification app works, from the published paper by one of the authors of the app."
 tags: [TIL]
 ---
 

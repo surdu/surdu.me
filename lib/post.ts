@@ -39,7 +39,7 @@ export function getPost(filename: string): Post {
 		slug,
 		date,
 		markdown: content,
-		synopsis,
+		synopsis: data.synopsis || synopsis,
 		featured: data.featured || false,
 		tags: data.tags || [],
 	};

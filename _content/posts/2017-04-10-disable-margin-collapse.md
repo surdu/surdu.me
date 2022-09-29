@@ -1,5 +1,6 @@
 ---
 title:  "Disable Margin Collapse in CSS with No Visual Impact"
+synopsis: "When working with CSS you sometimes have to work around a behavior known as margin collapsing. Let's go briefly through what it is and an easy cool hack to negate it."
 tags: [css]
 ---
 

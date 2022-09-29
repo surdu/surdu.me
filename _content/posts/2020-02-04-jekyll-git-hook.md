@@ -1,5 +1,6 @@
 ---
 title:  "Automate Building GitHub Pages That Use Jekyll Plugins"
+synopsis: "I wanted to add a plugin for my Jekyll-generated website, and now I need to have a custom build process, as GitHub doesn't support custom plugins. We'll go through what is needed for that."
 tags: [devops]
 ---
 
