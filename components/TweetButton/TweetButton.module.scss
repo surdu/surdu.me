@@ -1,0 +1,24 @@
+$fontSize: 1.5rem;
+
+.button {
+	background-color: #2591D6;
+	color: #fff;
+	padding: 0 0.6rem;
+	padding-bottom: 0.3rem;
+	border-radius: 0.5rem;
+	font-size: $fontSize;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	span {
+		vertical-align: middle;
+	}
+}
+
+.icon {
+	height: $fontSize;
+	margin-right: 0.5rem;
+	vertical-align: middle;
+}

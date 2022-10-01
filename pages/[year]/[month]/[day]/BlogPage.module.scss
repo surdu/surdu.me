@@ -26,9 +26,14 @@
   }
 }
 
+.shareBar {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.1rem solid var(--text-color);
+}
+
 .comments {
   margin-top: 4rem;
-  padding-top: 4rem;
 }
 
 @media (max-width: theme.$breakpont-mobile) {
