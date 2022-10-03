@@ -1,10 +1,12 @@
+import { useEffect, useRef, useState } from "react";
+
 import Layout from "~/components/Layout/Layout";
 import {
-  generatePostCover,
-  getAllPosts,
-  getPostByParams,
-  Post,
-  PostParams,
+	generatePostCover,
+	getAllPosts,
+	getPostByParams,
+	Post,
+	PostParams,
 } from "~/lib/post";
 import Markdown from "~/components/Markdown";
 import Comments from "~/components/Comments";
@@ -14,19 +16,40 @@ import Meta from "~/components/Meta";
 import styles from "./BlogPage.module.scss";
 import TweetButton from "~/components/TweetButton/TweetButton";
 import config from "~/lib/config";
+import ReadingProgressBar from "~/components/ReadingProgressBar/ReadingProgressBar";
 
 interface BlogPostsProps {
 	post: Post;
 }
 
 export default function BlogPosts({ post }: BlogPostsProps) {
+	const articleRef = useRef<HTMLDivElement>(null);
+	const [progress, setProgress] = useState(0);
+
 	const rawDate = new Date(post.date);
 	const date = new Intl.DateTimeFormat("en-uk", { dateStyle: "medium" }).format(
 		rawDate
 	);
 	const datetime = rawDate.toISOString().split("T")[0];
+
+	useEffect(function () {
+		function handleScroll() {
+			const articleRect = articleRef.current?.getBoundingClientRect();
+			const articleBottom =
+				articleRect?.bottom! + window.scrollY - window.innerHeight;
+			const progress = Math.min((window.scrollY * 100) / articleBottom, 100);
+			setProgress(progress);
+		}
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
+
 	return (
-		<Layout>
+		<Layout progress={progress}>
 			<Meta title={post.title} post={post} />
 
 			<h1 className={styles.title}>{post.title}</h1>
@@ -37,9 +60,9 @@ export default function BlogPosts({ post }: BlogPostsProps) {
 			>
 				{date}
 			</time>
-			<article className={styles.article}>
+			<div className={styles.article} ref={articleRef}>
 				<Markdown>{post.markdown}</Markdown>
-			</article>
+			</div>
 			<div className={styles.shareBar}>
 				<TweetButton
 					text={`I just read "${post.title}" by @surdume`}
@@ -57,31 +80,31 @@ export default function BlogPosts({ post }: BlogPostsProps) {
 }
 
 interface Params {
-  params: PostParams;
+	params: PostParams;
 }
 
 export async function getStaticProps({ params }: Params) {
-  const post = getPostByParams(params);
-  await generatePostCover(post);
-  return { props: { post } };
+	const post = getPostByParams(params);
+	await generatePostCover(post);
+	return { props: { post } };
 }
 
 export function getStaticPaths() {
-  const posts = getAllPosts();
+	const posts = getAllPosts();
 
-  return {
-    paths: posts.map((post) => {
-      const [year, month, day, page] = post.url.split("/");
+	return {
+		paths: posts.map((post) => {
+			const [year, month, day, page] = post.url.split("/");
 
-      return {
-        params: {
-          year,
-          month,
-          day,
-          page,
-        },
-      };
-    }),
-    fallback: false,
-  };
+			return {
+				params: {
+					year,
+					month,
+					day,
+					page,
+				},
+			};
+		}),
+		fallback: false,
+	};
 }

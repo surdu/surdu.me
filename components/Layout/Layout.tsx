@@ -6,42 +6,43 @@ import { useEffect } from "react";
 import SkipToContent from "~/components/SkipToContent/SkipToContent";
 
 interface LayoutProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
+	progress?: number;
 }
 
-export default function Layout({ children }: LayoutProps) {
-  useEffect(function bindOnScroll() {
-    function handleScroll() {
-      if (window.scrollY > 110) {
-        document.body.setAttribute("header-scrolled", "");
-      } else {
-        document.body.removeAttribute("header-scrolled");
-      }
+export default function Layout({ children, progress }: LayoutProps) {
+	useEffect(function bindOnScroll() {
+		function handleScroll() {
+			if (window.scrollY > 110) {
+				document.body.setAttribute("header-scrolled", "");
+			} else {
+				document.body.removeAttribute("header-scrolled");
+			}
 
-      if (window.scrollY > vh(90)) {
-        document.body.setAttribute("data-page-scrolled", "");
-      } else {
-        document.body.removeAttribute("data-page-scrolled");
-      }
-    }
+			if (window.scrollY > vh(90)) {
+				document.body.setAttribute("data-page-scrolled", "");
+			} else {
+				document.body.removeAttribute("data-page-scrolled");
+			}
+		}
 
-    window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
-  return (
-    <>
-      <SkipToContent />
-      <Header />
-      <main className={styles.main} id="mainContent" aria-label="Main content">
-        {children}
-      </main>
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<SkipToContent />
+			<Header progress={progress} />
+			<main className={styles.main} id="mainContent" aria-label="Main content">
+				{children}
+			</main>
+			<Footer />
+		</>
+	);
 }
 
 function vh(value: number) {

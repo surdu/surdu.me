@@ -8,48 +8,55 @@ import Logo from "./logo.svg";
 import Social from "./Social/Social";
 import Burger from "./Burger/Burger";
 import MobileMenu from "./MobileMenu/MobileMenu";
+import ReadingProgressBar from "~/components/ReadingProgressBar/ReadingProgressBar";
 
-export default function Header() {
-  const [showMenu, setShowMenu] = useState(false);
+interface HeaderProps {
+	progress?: number;
+}
 
-  useEffect(
-    function updateBodyClasses() {
-      if (showMenu) {
-        document.body.classList.add("menuShown");
-      } else {
-        document.body.classList.remove("menuShown");
-      }
-    },
-    [showMenu]
-  );
+export default function Header(props: HeaderProps) {
+	const { progress } = props;
+	const [showMenu, setShowMenu] = useState(false);
 
-  return (
-    <>
-      <header className={styles.header} aria-label="Page header">
-        <Link href="/">
-          <a tabIndex={0}>
-            <Logo className={styles.logo} aria-label="Surdu's Logo" />
-          </a>
-        </Link>
+	useEffect(
+		function updateBodyClasses() {
+			if (showMenu) {
+				document.body.classList.add("menuShown");
+			} else {
+				document.body.classList.remove("menuShown");
+			}
+		},
+		[showMenu]
+	);
 
-        <Menu className={styles.menu} />
+	return (
+		<>
+			<header className={styles.header} aria-label="Page header">
+				<Link href="/">
+					<a tabIndex={0}>
+						<Logo className={styles.logo} aria-label="Surdu's Logo" />
+					</a>
+				</Link>
 
-        <div className={styles.rightWrap}>
-          <div className={styles.socialIcons}>
-            <Social className={styles.socialIcon} />
-          </div>
+				<Menu className={styles.menu} />
 
-          <ThemeToggle />
+				<div className={styles.rightWrap}>
+					<div className={styles.socialIcons}>
+						<Social className={styles.socialIcon} />
+					</div>
 
-          <Burger
-            onClick={() => setShowMenu(!showMenu)}
-            open={false}
-            aria-hidden={showMenu}
-          />
-        </div>
-      </header>
+					<ThemeToggle />
 
-      <MobileMenu open={showMenu} onClose={() => setShowMenu(false)} />
-    </>
-  );
+					<Burger
+						onClick={() => setShowMenu(!showMenu)}
+						open={false}
+						aria-hidden={showMenu}
+					/>
+				</div>
+				{progress !== undefined && <ReadingProgressBar progress={progress} />}
+			</header>
+
+			<MobileMenu open={showMenu} onClose={() => setShowMenu(false)} />
+		</>
+	);
 }
