@@ -14,6 +14,7 @@ export interface Post {
 	url: string;
 	slug: string;
 	date: number;
+	draft: boolean;
 	markdown: string;
 	synopsis: string;
 	featured: boolean;
@@ -38,6 +39,7 @@ export function getPost(filename: string): Post {
 		url,
 		slug,
 		date,
+		draft: data.draft || false,
 		markdown: content,
 		synopsis: data.synopsis || synopsis,
 		featured: data.featured || false,
@@ -48,10 +50,12 @@ export function getPost(filename: string): Post {
 interface PostsFilter {
 	excludeFeatured?: boolean;
 	tag?: string;
+	includeDrafts?: boolean;
 }
 
 const defaultFilters: PostsFilter = {
 	excludeFeatured: false,
+	includeDrafts: false,
 };
 
 export function getAllPosts(userFilters?: PostsFilter) {
@@ -72,6 +76,10 @@ export function getAllPosts(userFilters?: PostsFilter) {
 		}
 
 		if (filters.tag && !post.tags.includes(filters.tag)) {
+			continue;
+		}
+
+		if (!filters.includeDrafts && post.draft) {
 			continue;
 		}
 

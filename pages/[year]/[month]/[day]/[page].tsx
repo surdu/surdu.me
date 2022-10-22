@@ -90,7 +90,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export function getStaticPaths() {
-	const posts = getAllPosts();
+	const posts = getAllPosts({ includeDrafts: true });
 
 	return {
 		paths: posts.map((post) => {
