@@ -16,7 +16,6 @@ import Meta from "~/components/Meta";
 import styles from "./BlogPage.module.scss";
 import TweetButton from "~/components/TweetButton/TweetButton";
 import config from "~/lib/config";
-import ReadingProgressBar from "~/components/ReadingProgressBar/ReadingProgressBar";
 
 interface BlogPostsProps {
 	post: Post;
@@ -90,7 +89,7 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export function getStaticPaths() {
-	const posts = getAllPosts();
+	const posts = getAllPosts({ includeDrafts: true });
 
 	return {
 		paths: posts.map((post) => {

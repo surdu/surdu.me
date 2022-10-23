@@ -1,6 +1,6 @@
 ---
 title:  "Capture the Output of a Django Command"
-tags: [python, TIL]
+tags: [python, quick-tip]
 ---
 
 
