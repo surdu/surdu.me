@@ -4,7 +4,7 @@ tags: [js, quick-tip]
 draft: true
 ---
 
-One thing that I strive to achieve is to write code that doesn't need comments to convey meaning. The most basic thing when doing this is to avoid using magic numbers. In this article, I'll illustrate how I avoid using magic numbers when it comes to time constants.
+One thing that I strive to achieve is to write code that doesn't need comments to convey meaning. The most basic thing when doing this is to avoid using *magic numbers*. In this article, I'll illustrate how I avoid using them when it comes to time constants.
 
 <quote>
 The term **magic number** or **magic constant** refers to the anti-pattern of using numbers directly in source code. This obscures the developers' intent in choosing that number, increases opportunities for subtle errors and makes it more difficult for the program to be adapted and extended in the future.
@@ -12,13 +12,13 @@ The term **magic number** or **magic constant** refers to the anti-pattern of us
 [Wikipedia](https://en.wikipedia.org/wiki/Magic_number_%28programming%29)
 </quote>
 
-Usually, time values in JavaScript are expressed in milliseconds, so what we see in code when it comes to time values is something like this:
+Let's take a look at the following line of JavaScript code:
 
 ```js
 performAction(retryConnection, 1320000);
 ```
 
-If I haven't given you the hint above, it would be hard to know what `1320000` represents. Is it a time interval or maybe a memory limit?
+It is hard to know for sure what `1320000` represents. Is it a time interval or maybe a memory limit?
 
 After a code review, this code might get changed into this:
 
@@ -27,7 +27,7 @@ const retryInterval = 1320000;
 performAction(retryConnection, retryInterval);
 ```
 
-Now it's clear that it is a time interval, but it is not straightforward how much `1320000` milliseconds represent. Do we retry the connection in minutes? Hours?
+Now it's clear that it is a time interval. Usually in JavaScript, as in this case, time values are expressed in milliseconds. We don't use milliseconds very often in our daily lives, so it is not straightforward for us to easily visualize how much `1320000` milliseconds represent. Do we retry the connection in minutes? An hour?
 
 Usually, the next attempt to make it more clear is like this:
 
