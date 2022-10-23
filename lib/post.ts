@@ -209,3 +209,20 @@ export function generateRssFeed() {
 	fs.mkdirSync("./public/rss", { recursive: true });
 	fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
 }
+
+export function generatePostsMeta(posts: Post[]) {
+	interface PostMeta {
+		isDraft: boolean;
+	}
+	const postsMeta: Record<string, PostMeta> = {};
+
+	posts.forEach((post) => {
+		postsMeta[`/${post.url}`] = {
+			isDraft: post.draft,
+		};
+	});
+
+	const metaPath = join(process.cwd(), ".next", "posts-meta.json");
+
+	fs.writeFileSync(metaPath, JSON.stringify(postsMeta));
+}

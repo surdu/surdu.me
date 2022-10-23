@@ -4,7 +4,7 @@ tags: [js, quick-tip]
 draft: true
 ---
 
-One thing that I strive to achieve is to write code that doesn't need comments to convey meaning. The most basic thing when doing this is to avoid using magic numbers. In this short article, I'll illustrate how I avoid using magic numbers when it comes to time constants.
+One thing that I strive to achieve is to write code that doesn't need comments to convey meaning. The most basic thing when doing this is to avoid using magic numbers. In this article, I'll illustrate how I avoid using magic numbers when it comes to time constants.
 
 <quote>
 The term **magic number** or **magic constant** refers to the anti-pattern of using numbers directly in source code. This obscures the developers' intent in choosing that number, increases opportunities for subtle errors and makes it more difficult for the program to be adapted and extended in the future.
@@ -20,8 +20,6 @@ performAction(retryConnection, 1320000);
 
 If I haven't given you the hint above, it would be hard to know what `1320000` represents. Is it a time interval or maybe a memory limit?
 
-The above is a simple example of a magic number.
-
 After a code review, this code might get changed into this:
 
 ```js
@@ -29,7 +27,7 @@ const retryInterval = 1320000;
 performAction(retryConnection, retryInterval);
 ```
 
-Now it's clear that it is a time interval, but it is not easy to understand how much `1320000` milliseconds represent. Do we retry the connection in minutes? Hours?
+Now it's clear that it is a time interval, but it is not straightforward how much `1320000` milliseconds represent. Do we retry the connection in minutes? Hours?
 
 Usually, the next attempt to make it more clear is like this:
 
@@ -63,9 +61,7 @@ TIME.YEARS = 365 * TIME.DAYS;
 // Continues adding more units as needed
 ```
 
-As you can see, we apply the same principle even when we define our constants.
-
-This pattern can be applied to any unit that grows in multiples. Here is how you would express sizes in megabytes:
+This principle can be applied to any unit that grows in multiples. Here is how you would express sizes in megabytes:
 
 ```js
 const SIZE = {
@@ -88,7 +84,7 @@ DISTANCE.KILOMETERS = 1000 * DISTANCE.METERS;
 // ...
 ```
 
-Pretty simple, ha? Now we're one step closer to a more meaningful code.
+Pretty simple! Now we're one step closer to a more meaningful code.
 
 
 

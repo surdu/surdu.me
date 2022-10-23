@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Layout from "~/components/Layout/Layout";
 import {
 	generatePostCover,
+	generatePostsMeta,
 	getAllPosts,
 	getPostByParams,
 	Post,
@@ -16,7 +17,6 @@ import Meta from "~/components/Meta";
 import styles from "./BlogPage.module.scss";
 import TweetButton from "~/components/TweetButton/TweetButton";
 import config from "~/lib/config";
-import ReadingProgressBar from "~/components/ReadingProgressBar/ReadingProgressBar";
 
 interface BlogPostsProps {
 	post: Post;
@@ -91,7 +91,7 @@ export async function getStaticProps({ params }: Params) {
 
 export function getStaticPaths() {
 	const posts = getAllPosts({ includeDrafts: true });
-
+	generatePostsMeta(posts);
 	return {
 		paths: posts.map((post) => {
 			const [year, month, day, page] = post.url.split("/");
