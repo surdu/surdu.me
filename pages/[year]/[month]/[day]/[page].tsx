@@ -16,6 +16,8 @@ import Meta from "~/components/Meta";
 import styles from "./BlogPage.module.scss";
 import TweetButton from "~/components/TweetButton/TweetButton";
 import config from "~/lib/config";
+import Link from "next/link";
+import Tag from "~/components/Tag";
 
 interface BlogPostsProps {
 	post: Post;
@@ -69,6 +71,16 @@ export default function BlogPosts({ post }: BlogPostsProps) {
 				>
 					Tweet this article
 				</TweetButton>
+			</div>
+			<div className={styles.tags}>
+				Post tagged with:
+				{post.tags.map((tag) => (
+					<Link href={`/blog/tag/${tag}`} key={tag}>
+						<a>
+							<Tag>{tag}</Tag>
+						</a>
+					</Link>
+				))}
 			</div>
 			<div className={styles.comments}>
 				<Comments post={post} />

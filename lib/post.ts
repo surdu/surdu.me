@@ -135,7 +135,7 @@ export function generatePostCover(post: Post) {
 		ctx.fillStyle = "#22272E";
 		ctx.fillRect(0, 0, size.width, size.height);
 
-		ctx.font = '100px "Rubik"';
+		ctx.font = '150px "Rubik"';
 		ctx.fillStyle = "#ADBAC6";
 		drawMultilineText(ctx, post.title, {
 			rect: {
@@ -145,8 +145,8 @@ export function generatePostCover(post: Post) {
 				height: 600,
 			},
 			font: "Rubik",
-			minFontSize: 100,
-			maxFontSize: 100,
+			minFontSize: 150,
+			maxFontSize: 150,
 		});
 
 		ctx.font = '70px "Rubik"';
