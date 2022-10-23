@@ -1,5 +1,5 @@
 ---
-title:  "Write more meaningful time constants"
+title:  "Write More Meaningful Time Constants"
 tags: [js, quick-tip]
 draft: true
 ---
