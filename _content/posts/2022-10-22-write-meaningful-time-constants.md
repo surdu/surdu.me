@@ -1,7 +1,6 @@
 ---
 title:  "Write More Meaningful Time Constants"
 tags: [js, quick-tip]
-draft: true
 ---
 
 One thing that I strive to achieve is to write code that doesn't need comments to convey meaning. The most basic thing when doing this is to avoid using *magic numbers*. In this article, I'll illustrate how I avoid using them when it comes to time constants.
