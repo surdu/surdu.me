@@ -27,14 +27,6 @@ export default function Social(props: SocialProps) {
 					/>
 				</a>
 			</Link>
-			<Link href="https://stackoverflow.com/users/460750/nicu-surdu">
-				<a aria-label="My StackOverflow page" title="StackOverflow">
-					<FontAwesomeIcon
-						icon={faStackOverflow}
-						className={clsx(styles.socialIcon, className)}
-					/>
-				</a>
-			</Link>
 			<Link href="https://twitter.com/surdume">
 				<a aria-label="My Twitter page" title="Twitter">
 					<FontAwesomeIcon
