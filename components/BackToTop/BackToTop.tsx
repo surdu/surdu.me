@@ -14,7 +14,9 @@ export default function BackToTop() {
 			>
 				&uarr;
 			</a>
-			Back up
+			<span className={styles.text}>Back</span>
+			<br />
+			<span className={styles.text}>up</span>
 		</div>
 	);
 }
