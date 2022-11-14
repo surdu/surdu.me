@@ -1,8 +1,12 @@
+import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
+import styles from "./EnabledFeature.module.scss";
 
 interface EnabledFeatureProps {
 	serviceName: string;
 	children: ReactNode;
+	privacyPolicy?: string;
+	height?: number;
 }
 
 function getStoredOptions() {
@@ -11,7 +15,7 @@ function getStoredOptions() {
 }
 
 export default function EnabledFeature(props: EnabledFeatureProps) {
-	const { serviceName, children } = props;
+	const { serviceName, children, privacyPolicy, height } = props;
 	const [enabled, setEnabled] = useState(false);
 
 	useEffect(() => {
@@ -38,8 +42,27 @@ export default function EnabledFeature(props: EnabledFeatureProps) {
 	return (
 		<>
 			{!enabled ? (
-				<div>
-					This has cookies! <a onClick={() => setOption(true)}>Enable</a>
+				<div className={styles.feature} style={{ height: `${height}px` }}>
+					{serviceName} is disabled becuase it uses cookies in order to work.
+					{privacyPolicy ? (
+						<div>
+							If you are ok with{" "}
+							<Link href={privacyPolicy}>
+								<a target="_blank">{serviceName}'s Privacy Policy</a>
+							</Link>
+							, use button below to enable this feature.
+						</div>
+					) : (
+						<div>
+							If you are ok with {serviceName}'s cookies, you can enable this
+							feauture.
+						</div>
+					)}
+					<div>
+						<a className={styles.button} onClick={() => setOption(true)}>
+							Enable
+						</a>
+					</div>
 				</div>
 			) : (
 				<>{children}</>

@@ -11,7 +11,11 @@ export default function CodePen(props: CodepenProps) {
 	const { slug, height, version } = props;
 	return (
 		<>
-			<EnabledFeature serviceName="codepen">
+			<EnabledFeature
+				serviceName="CodePen"
+				privacyPolicy="https://blog.codepen.io/documentation/privacy-policy/#cookies-4"
+				height={height}
+			>
 				<>
 					<p
 						data-height={height}
