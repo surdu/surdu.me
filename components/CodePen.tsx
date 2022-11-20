@@ -1,3 +1,4 @@
+import { faCodepen } from "@fortawesome/free-brands-svg-icons";
 import Script from "next/script";
 import EnabledFeature from "~/components/EnabledFeature/EnabledFeature";
 
@@ -15,6 +16,7 @@ export default function CodePen(props: CodepenProps) {
 				serviceName="CodePen"
 				privacyPolicy="https://blog.codepen.io/documentation/privacy-policy/#cookies-4"
 				height={height}
+				icon={faCodepen}
 			>
 				<>
 					<p

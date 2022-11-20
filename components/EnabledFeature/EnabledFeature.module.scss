@@ -2,9 +2,24 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	flex-direction: column;
+	background-color: var(--code-bkg-color);
+	padding: 5rem;
+}
+
+.icon {
+	height: 7rem;
+	margin-bottom: 3rem;
 }
 
 .button {
 	cursor: pointer;
+	background-color: var(--text-color);
+	color: var(--background-color);
+	border: none;
+	padding: 1rem;
+	font-family: 'Poppins', sans-serif;
+
+	margin-top: 1rem;
 }
