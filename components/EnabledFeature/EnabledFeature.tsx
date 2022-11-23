@@ -1,5 +1,6 @@
 import { IconDefinition } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
 import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
 import styles from "./EnabledFeature.module.scss";
@@ -21,12 +22,28 @@ export default function EnabledFeature(props: EnabledFeatureProps) {
 	const { serviceName, icon, children, privacyPolicy, height } = props;
 	const [enabled, setEnabled] = useState(false);
 
-	useEffect(() => {
+	function handleMessageEvent(event: MessageEvent) {
+		if (event.data.enabledFeature) {
+			const enabledFeature = event.data.enabledFeature;
+
+			if (enabledFeature.serviceName === serviceName) {
+				setEnabled(enabledFeature.value);
+			}
+		}
+	}
+
+	useEffect(function init() {
 		const options = getStoredOptions();
 
 		if (options[serviceName]) {
 			setEnabled(true);
 		}
+
+		window.addEventListener("message", handleMessageEvent);
+
+		return () => {
+			window.removeEventListener("message", handleMessageEvent);
+		};
 	}, []);
 
 	function setOption(enabled: boolean) {
@@ -39,6 +56,10 @@ export default function EnabledFeature(props: EnabledFeatureProps) {
 		}
 
 		localStorage.setItem("enabledFeatures", JSON.stringify(options));
+		window.postMessage(
+			{ enabledFeature: { serviceName: serviceName, value: enabled } },
+			"*"
+		);
 		setEnabled(true);
 	}
 
@@ -56,22 +77,41 @@ export default function EnabledFeature(props: EnabledFeatureProps) {
 								<Link href={privacyPolicy}>
 									<a target="_blank">{serviceName}'s Privacy Policy</a>
 								</Link>
-								, use the button below to allow this feature on this site.
+								, use the button below to enable this feature on this site.
 							</p>
 						) : (
 							<div>
-								If you are ok with <b>{serviceName}'s</b> cookies, you can allow
-								this feauture on this site using the button below.
+								If you are ok with <b>{serviceName}'s</b> cookies, you can
+								enable this feauture on this site using the button below.
 							</div>
 						)}
 					</div>
 
 					<button className={styles.button} onClick={() => setOption(true)}>
-						Allow {serviceName}
+						Enable {serviceName}
 					</button>
 				</div>
 			) : (
-				<>{children}</>
+				<>
+					<div>{children}</div>
+					<div className={styles.enabledBar}>
+						<div className={styles.enabledBarMessage}>
+							{privacyPolicy ? (
+								<Link href={privacyPolicy}>
+									<a target="_blank">{serviceName}'s Privacy Policy</a>
+								</Link>
+							) : (
+								<span>{serviceName} is using cookies</span>
+							)}
+						</div>
+						<button
+							className={clsx(styles.button, styles.smallButton)}
+							onClick={() => setOption(false)}
+						>
+							Disable {serviceName}
+						</button>
+					</div>
+				</>
 			)}
 		</>
 	);

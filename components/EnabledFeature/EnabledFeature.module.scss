@@ -23,3 +23,24 @@
 
 	margin-top: 1rem;
 }
+
+.smallButton {
+	padding: 0.5rem;
+	line-height: 1rem;
+	margin-top: 0;
+	height: 2rem;
+}
+
+.enabledBar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	background-color: var(--code-bkg-color);
+	font-size: 1.4rem;
+	padding: 0 0.5rem;
+}
+
+.enabledBarMessage {
+	flex: 1;
+}
