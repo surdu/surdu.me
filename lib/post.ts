@@ -150,7 +150,7 @@ export function generatePostCover(post: Post) {
 		});
 
 		ctx.font = '70px "Rubik"';
-		ctx.fillText("Surdu Nicolae", 400, 1015);
+		ctx.fillText("Nicu Surdu", 400, 1015);
 
 		ctx.font = '50px "Rubik"';
 		ctx.fillText("www.surdu.me", 400, 1100);
