@@ -76,9 +76,7 @@ export default function BlogPosts({ post }: BlogPostsProps) {
 				Post tagged with:
 				{post.tags.map((tag) => (
 					<Link href={`/blog/tag/${tag}`} key={tag}>
-						<a>
-							<Tag>{tag}</Tag>
-						</a>
+						<Tag>{tag}</Tag>
 					</Link>
 				))}
 			</div>

@@ -19,29 +19,31 @@ export default function Social(props: SocialProps) {
 
 	return (
 		<>
-			<Link href="https://github.com/surdu">
-				<a aria-label="My GitHub page" title="GitHub">
-					<FontAwesomeIcon
-						icon={faGithub}
-						className={clsx(styles.socialIcon, className)}
-					/>
-				</a>
+			<Link
+				href="https://github.com/surdu"
+				aria-label="My GitHub page"
+				title="GitHub"
+			>
+				<FontAwesomeIcon
+					icon={faGithub}
+					className={clsx(styles.socialIcon, className)}
+				/>
 			</Link>
-			<Link href="https://twitter.com/surdume">
-				<a aria-label="My Twitter page" title="Twitter">
-					<FontAwesomeIcon
-						icon={faTwitter}
-						className={clsx(styles.socialIcon, className)}
-					/>
-				</a>
+			<Link
+				href="https://twitter.com/surdume"
+				aria-label="My Twitter page"
+				title="Twitter"
+			>
+				<FontAwesomeIcon
+					icon={faTwitter}
+					className={clsx(styles.socialIcon, className)}
+				/>
 			</Link>
-			<Link href="/rss/feed.xml">
-				<a aria-label="Blog RSS feed" title="RSS Feed">
-					<FontAwesomeIcon
-						icon={faRssSquare}
-						className={clsx(styles.socialIcon, className)}
-					/>
-				</a>
+			<Link href="/rss/feed.xml" aria-label="Blog RSS feed" title="RSS Feed">
+				<FontAwesomeIcon
+					icon={faRssSquare}
+					className={clsx(styles.socialIcon, className)}
+				/>
 			</Link>
 		</>
 	);

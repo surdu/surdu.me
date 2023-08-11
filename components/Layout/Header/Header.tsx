@@ -32,10 +32,8 @@ export default function Header(props: HeaderProps) {
 	return (
 		<>
 			<header className={styles.header} aria-label="Page header">
-				<Link href="/">
-					<a tabIndex={0}>
-						<Logo className={styles.logo} aria-label="Surdu's Logo" />
-					</a>
+				<Link href="/" tabIndex={0}>
+					<Logo className={styles.logo} aria-label="Surdu's Logo" />
 				</Link>
 
 				<Menu className={styles.menu} />

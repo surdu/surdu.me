@@ -137,6 +137,7 @@ export function generatePostCover(post: Post) {
 
 		ctx.font = '150px "Rubik"';
 		ctx.fillStyle = "#ADBAC6";
+		//@ts-expect-error The type for ctx is out of sync with ctx from canvas lib after canvas upgrade
 		drawMultilineText(ctx, post.title, {
 			rect: {
 				x: 100,

@@ -20,11 +20,14 @@ export default function TweetButton(props: TweetButtonProps) {
 	}
 
 	return (
-		<Link href={`https://twitter.com/intent/tweet?text=${finalText}`}>
-			<a rel="noreferrer noopener" target="_blank" className={styles.button}>
-				<FontAwesomeIcon icon={faTwitter} className={styles.icon} />
-				<span>{children}</span>
-			</a>
+		<Link
+			href={`https://twitter.com/intent/tweet?text=${finalText}`}
+			rel="noreferrer noopener"
+			target="_blank"
+			className={styles.button}
+		>
+			<FontAwesomeIcon icon={faTwitter} className={styles.icon} />
+			<span>{children}</span>
 		</Link>
 	);
 }
