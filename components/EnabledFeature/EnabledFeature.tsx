@@ -74,10 +74,10 @@ export default function EnabledFeature(props: EnabledFeatureProps) {
 						{privacyPolicy ? (
 							<p>
 								If you're ok with{" "}
-								<Link href={privacyPolicy}>
-									<a target="_blank">{serviceName}'s Privacy Policy</a>
+								<Link href={privacyPolicy} target="_blank">
+									{serviceName}'s Privacy Policy
 								</Link>
-								, use the button below to enable this feature on this site.
+								, use the button below to enable this feature on my site.
 							</p>
 						) : (
 							<div>
@@ -97,8 +97,8 @@ export default function EnabledFeature(props: EnabledFeatureProps) {
 					<div className={styles.enabledBar}>
 						<div className={styles.enabledBarMessage}>
 							{privacyPolicy ? (
-								<Link href={privacyPolicy}>
-									<a target="_blank">{serviceName}'s Privacy Policy</a>
+								<Link href={privacyPolicy} target="_blank">
+									{serviceName}'s Privacy Policy
 								</Link>
 							) : (
 								<span>{serviceName} is using cookies</span>
