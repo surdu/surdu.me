@@ -1,38 +1,42 @@
 (function NoFlash() {
-  var STORAGE_KEY = "darkTheme";
-  var DARK_CSS_CLASS = "dark-theme";
-  var LIGHT_CSS_CLASS = "light-theme";
+	var STORAGE_KEY = "darkTheme";
+	var DARK_CSS_CLASS = "dark-theme";
+	var LIGHT_CSS_CLASS = "light-theme";
 
-  updateHTML(getDefaultDarkMode());
+	updateHTML(getDefaultTheme());
 
-  function updateHTML(darkMode) {
-    if (darkMode) {
-      document.body.classList.add(DARK_CSS_CLASS);
-      document.body.classList.remove(LIGHT_CSS_CLASS);
-    } else {
-      document.body.classList.add(LIGHT_CSS_CLASS);
-      document.body.classList.remove(DARK_CSS_CLASS);
-    }
-  }
+	function updateHTML(useDarkTheme) {
+		if (useDarkTheme) {
+			document.body.classList.add(DARK_CSS_CLASS);
+			document.body.classList.remove(LIGHT_CSS_CLASS);
+		} else {
+			document.body.classList.add(LIGHT_CSS_CLASS);
+			document.body.classList.remove(DARK_CSS_CLASS);
+		}
+	}
 
-  function getDefaultDarkMode() {
-    var isOSDark = isOSThemeDark();
-    var isStoreDark = isDarkModeStored();
+	function getDefaultTheme() {
+		const isOSDark = osUsesDarkTheme();
+		const isStoredThemeDark = getStoredTheme();
 
-    return !!(isStoreDark || isOSDark);
-  }
+		if (isStoredThemeDark === undefined) {
+			return isOSDark;
+		}
 
-  function isDarkModeStored() {
-    var storedValue = localStorage.getItem(STORAGE_KEY);
+		return isStoredThemeDark;
+	}
 
-    if (storedValue === undefined) {
-      return;
-    }
+	function getStoredTheme() {
+		const storedValue = localStorage.getItem(STORAGE_KEY);
 
-    return storedValue === "true";
-  }
+		if (storedValue === null) {
+			return;
+		}
 
-  function isOSThemeDark() {
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
+		return storedValue === "true";
+	}
+
+	function osUsesDarkTheme() {
+		return window.matchMedia("(prefers-color-scheme: dark)").matches;
+	}
 })();
