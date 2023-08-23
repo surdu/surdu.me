@@ -23,7 +23,7 @@ Before opening it up, I unplugged it from the 220V outlet, disconnected the batt
 
 Once opened, I took a picture of its connections, as there are plenty of them and I wanted to remember how to put it back.
 
-![Connections](/assets/images/apc/connections.jpg)
+![Picture showing the connections on the main circuit board of the UPS](/assets/images/apc/connections.jpg)
 
 After a quick visual inspection of the main board, it was clear that no parts were blown. Next, I checked on a hint from a YouTube comment, that someone was successful in fixing it by replacing some bad capacitors, but he/she didn't go into any more detail than that.
 
@@ -35,7 +35,7 @@ Measured all capacitors and sure enough, found 4 caps that were dead as a dodo. 
 The capacitors in the picture below are already changed with the good ones, as I forgot to take a picture beforehand.
 </note>
 
-![Bad Capacitors](/assets/images/apc/bad-caps.jpg)
+![Picture showing circles around the capacitors that I've changed](/assets/images/apc/bad-caps.jpg)
 
 
 ## The fix
@@ -44,7 +44,7 @@ The fix was pretty obvious by now: I needed to replace the bad caps with good on
 
 All 4 bad caps were the same: capacitance `22uF` and voltage rating of `25V` made by Jamicon.
 
-![Culprit](/assets/images/apc/culprit.jpg)
+![A close-up picture of one of the bad capacitors](/assets/images/apc/culprit.jpg)
 
 I replaced them with better-quality [Nichicon capacitors](https://uk.farnell.com/nichicon/uka1e220mdd1td/cap-22-f-25v-20/dp/2841899) as I didn't want to replace them again anytime soon.
 

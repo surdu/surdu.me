@@ -42,11 +42,11 @@ export default function useTheme() {
 }
 
 function getDefaultTheme() {
-	const isOSDark = osUsesDarkTheme();
+	const userPreffersDarkTheme = doesUserPrefferDarkTheme();
 	const isStoredThemeDark = getStoredTheme();
 
 	if (isStoredThemeDark === undefined) {
-		return isOSDark;
+		return userPreffersDarkTheme;
 	}
 
 	return isStoredThemeDark;
@@ -66,7 +66,7 @@ function storeTheme(useDarkTheme: boolean) {
 	localStorage.setItem(STORAGE_KEY, useDarkTheme.toString());
 }
 
-function osUsesDarkTheme() {
+function doesUserPrefferDarkTheme() {
 	return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 

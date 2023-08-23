@@ -44,7 +44,7 @@ performAction(retryConnection, retryInterval);
 
 Much better, isn't it?
 
-To write your time constants like this, just throw the following code in your constants file and you're ready to go:
+To write your time constants like this, just throw the following code in your constants file and you're good to go:
 
 ```js
 const TIME = {
