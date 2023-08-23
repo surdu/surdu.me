@@ -1,9 +1,11 @@
 import styles from "./Layout.module.scss";
+import theme from "~/styles/theme.module.scss";
 
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import { useEffect } from "react";
 import SkipToContent from "~/components/SkipToContent/SkipToContent";
+import useTheme from "~/components/ThemeToggle/useTheme";
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -11,6 +13,8 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, progress }: LayoutProps) {
+	const { useDarkTheme } = useTheme();
+
 	useEffect(function bindOnScroll() {
 		function handleScroll() {
 			if (window.scrollY > 110) {
@@ -32,6 +36,24 @@ export default function Layout({ children, progress }: LayoutProps) {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
+
+	useEffect(() => {
+		let themeColorMeta = document.querySelector("#themeColorMeta");
+
+		if (!themeColorMeta) {
+			themeColorMeta = document.createElement("meta");
+			themeColorMeta.setAttribute("id", "themeColorMeta");
+			themeColorMeta.setAttribute("name", "theme-color");
+
+			document.head.appendChild(themeColorMeta);
+		}
+
+		if (useDarkTheme) {
+			themeColorMeta?.setAttribute("content", theme.darkBackgroundColor);
+		} else {
+			themeColorMeta?.setAttribute("content", theme.lightBackgroundColor);
+		}
+	}, [useDarkTheme]);
 
 	return (
 		<>

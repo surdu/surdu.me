@@ -1,7 +1,7 @@
 (function NoFlash() {
-	var STORAGE_KEY = "darkTheme";
-	var DARK_CSS_CLASS = "dark-theme";
-	var LIGHT_CSS_CLASS = "light-theme";
+	const STORAGE_KEY = "darkTheme";
+	const DARK_CSS_CLASS = "dark-theme";
+	const LIGHT_CSS_CLASS = "light-theme";
 
 	updateHTML(getDefaultTheme());
 

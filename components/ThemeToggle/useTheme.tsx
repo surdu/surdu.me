@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import theme from "~/styles/theme.module.scss";
 
 const STORAGE_KEY = "darkTheme";
 const DARK_CSS_CLASS = "dark-theme";
@@ -70,11 +71,15 @@ function osUsesDarkTheme() {
 }
 
 function updateHTML(useDarkTheme: boolean) {
+	const themeColorMeta = document.querySelector("#themeColorMeta");
+
 	if (useDarkTheme) {
 		document.body.classList.add(DARK_CSS_CLASS);
 		document.body.classList.remove(LIGHT_CSS_CLASS);
+		themeColorMeta?.setAttribute("content", theme.darkBackgroundColor);
 	} else {
 		document.body.classList.add(LIGHT_CSS_CLASS);
 		document.body.classList.remove(DARK_CSS_CLASS);
+		themeColorMeta?.setAttribute("content", theme.lightBackgroundColor);
 	}
 }

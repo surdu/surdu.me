@@ -1,8 +1,11 @@
 $breakpont-mobile: 900px;
 
+$lightBackgroundColor: "#fff";
+$darkBackgroundColor: "#22272E";
+
 .light-theme {
   --text-color: #24292F;
-  --background-color: #fff;
+  --background-color: #{$lightBackgroundColor};
   --alt-bkg-color: #F7F7F7;
   --code-bkg-color: #EFF1F3;
   --accent-color: #C9E184;
@@ -11,9 +14,14 @@ $breakpont-mobile: 900px;
 
 .dark-theme {
   --text-color: #ADBAC6;
-  --background-color: #22272E;
+  --background-color: #{$darkBackgroundColor};
   --alt-bkg-color: #2E3039;
   --code-bkg-color: #3C434D;
   --accent-color: #A0E22C;
   --link-color: #579DF2;
+}
+
+:export {
+  lightBackgroundColor: #{$lightBackgroundColor};
+  darkBackgroundColor: #{$darkBackgroundColor};
 }

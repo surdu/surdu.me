@@ -84,9 +84,6 @@ export default function Meta(props: MetaProps) {
 				</>
 			)}
 
-			{/* TODO: make this dynamic */}
-			<meta name="theme-color" content="#fff" />
-
 			{/* Favicon */}
 			<link
 				rel="apple-touch-icon"
