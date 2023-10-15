@@ -3,7 +3,7 @@
 	const DARK_CSS_CLASS = "dark-theme";
 	const LIGHT_CSS_CLASS = "light-theme";
 
-	updateHTML(getDefaultTheme());
+	updateHTML(getCurrentTheme());
 
 	function updateHTML(useDarkTheme) {
 		if (useDarkTheme) {
@@ -15,7 +15,7 @@
 		}
 	}
 
-	function getDefaultTheme() {
+	function getCurrentTheme() {
 		const isOSDark = osUsesDarkTheme();
 		const isStoredThemeDark = getStoredTheme();
 

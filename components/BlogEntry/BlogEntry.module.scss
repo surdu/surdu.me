@@ -1,3 +1,4 @@
+@use "~/styles/vars";
 @use "~/styles/theme.module";
 
 .post {
@@ -37,6 +38,10 @@
       margin-right: 1rem;
     }
   }
+}
+
+:global(.animated) .post {
+  transition: background-color vars.$transitionDuration;
 }
 
 @media (max-width: theme.$breakpont-mobile) {

@@ -1,3 +1,4 @@
+@use "~/styles/vars";
 @use "~/styles/theme.module";
 
 .project {
@@ -7,6 +8,10 @@
   min-width: 30rem;
   padding: 1.5rem 3rem;
   background-color: var(--alt-bkg-color);
+}
+
+:global(.animated) .project {
+  transition: background-color vars.$transitionDuration;
 }
 
 .title {

@@ -50,7 +50,6 @@ $moonY: calc(0.3rem - #{$glowSize});
     left: $sunX;
     top: $sunY;
     opacity: 1;
-    transition: all $animationDuration;
   }
 
   .clouds {
@@ -58,7 +57,6 @@ $moonY: calc(0.3rem - #{$glowSize});
     left: 0.9rem;
     top: 0.1rem;
     opacity: 1;
-    transition: all $animationDuration;
   }
 
   .moon {
@@ -66,7 +64,6 @@ $moonY: calc(0.3rem - #{$glowSize});
     left: $sunX;
     top: $sunY;
     opacity: 0;
-    transition: all $animationDuration;
   }
 
   .stars {
@@ -74,8 +71,14 @@ $moonY: calc(0.3rem - #{$glowSize});
     left: -50%;
     top: 50%;
     opacity: 0;
-    transition: all $animationDuration;
   }
+}
+
+:global(.animated) .sun,
+:global(.animated) .clouds,
+:global(.animated) .moon,
+:global(.animated) .stars {
+  transition: all $animationDuration;
 }
 
 :global(.dark-theme) {

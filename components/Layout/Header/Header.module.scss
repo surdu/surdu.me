@@ -11,10 +11,13 @@
   right: 0;
   padding: 0.5rem 4rem;
   background-color: var(--background-color);
-  transition: background-color vars.$transitionDuration;
   margin: 0 calc(var(--main-padding) * -1);
   margin-top: 1rem;
   z-index: 2;
+}
+
+:global(.animated) .header {
+  transition: background-color vars.$transitionDuration;
 }
 
 [header-scrolled] .header {
@@ -42,17 +45,6 @@
   display: flex;
   width: 14rem;
   gap: 2rem;
-}
-
-.socialIcon {
-  height: 3rem;
-  color: var(--text-color);
-  transition: color 0.5;
-  vertical-align: middle;
-
-  &:hover {
-    color: var(--link-color);
-  }
 }
 
 @media (max-width: theme.$breakpont-mobile) {

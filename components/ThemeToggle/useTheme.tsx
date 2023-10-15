@@ -9,7 +9,7 @@ export default function useTheme() {
 	const [useDarkTheme, setUseDarkTheme] = useState(false);
 
 	useEffect(function initialize() {
-		updateTheme(getDefaultTheme(), true);
+		updateTheme(getCurrentTheme(), true);
 
 		const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
@@ -41,7 +41,7 @@ export default function useTheme() {
 	return { useDarkTheme, toggleTheme };
 }
 
-function getDefaultTheme() {
+function getCurrentTheme() {
 	const userPreffersDarkTheme = doesUserPrefferDarkTheme();
 	const isStoredThemeDark = getStoredTheme();
 
@@ -70,8 +70,17 @@ function doesUserPrefferDarkTheme() {
 	return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
+function doesUserPrefferReducedMotion() {
+	return window.matchMedia("(prefers-reduced-motion)").matches;
+}
+
 function updateHTML(useDarkTheme: boolean) {
 	const themeColorMeta = document.querySelector("#themeColorMeta");
+
+	const userPreffersReducedMotion = doesUserPrefferReducedMotion();
+	if (!userPreffersReducedMotion) {
+		document.body.classList.add("animated");
+	}
 
 	if (useDarkTheme) {
 		document.body.classList.add(DARK_CSS_CLASS);

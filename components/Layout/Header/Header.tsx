@@ -40,7 +40,7 @@ export default function Header(props: HeaderProps) {
 
 				<div className={styles.rightWrap}>
 					<div className={styles.socialIcons}>
-						<Social className={styles.socialIcon} />
+						<Social />
 					</div>
 
 					<ThemeToggle />
