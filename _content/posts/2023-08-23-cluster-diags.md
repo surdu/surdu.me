@@ -41,7 +41,7 @@ To make sure everything is working fine, I also connected a VAG-COM cable to the
  - pin 4 and 5 to GND
  - pin 7 to cluster's blue connector pin 25
 
-![Diagram of the OBD2 conector, showing pin number 1 in the top-left position and pin 16 in the bottom-right position](/assets/images/cluster/obd2-pinout.png)
+![Diagram of the OBD2 conector, showing pin number 1 in the top-left position and pin 16 in the bottom-right position](/assets/images/cluster/obd2-pinout.jpg)
 
 [Here](https://gist.github.com/surdu/f1fda10304ec736ab188c04226ff0140#file-obd2) you can find the descriptions of all the pins of the OBD2 connector.
 
