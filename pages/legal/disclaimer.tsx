@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import Link from "next/link";
 import Layout from "~/components/Layout/Layout";
 import Meta from "~/components/Meta";
 import config from "~/lib/config";
@@ -156,7 +157,9 @@ export default function Disclaimer() {
 				If you have any questions about this Disclaimer, You can contact Us:
 			</p>
 			<ul>
-				<li>By email: {config.email}</li>
+				<li>
+					Via the <Link href="/contact">contact form</Link>
+				</li>
 			</ul>
 		</Layout>
 	);

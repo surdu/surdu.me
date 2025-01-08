@@ -173,8 +173,7 @@ export function generateRssFeed() {
 	const date = new Date();
 	const author = {
 		name: "Nicu Surdu",
-		email: config.email,
-		link: "https://twitter.com/surdume",
+		link: "https://surdu.me",
 	};
 	const siteURL = `https://${config.domain}`;
 
