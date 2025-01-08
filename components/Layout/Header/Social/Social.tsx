@@ -4,6 +4,7 @@ import { faRssSquare } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 import styles from "./Social.module.scss";
+import BlueskyIcon from "./bluesky.svg";
 
 export default function Social() {
 	return (
@@ -16,11 +17,11 @@ export default function Social() {
 				<FontAwesomeIcon icon={faGithub} className={styles.socialIcon} />
 			</Link>
 			<Link
-				href="https://twitter.com/surdume"
-				aria-label="My Twitter page"
-				title="Twitter"
+				href="https://bsky.app/profile/surdu.bsky.social"
+				aria-label="My Bluesky page"
+				title="Bluesky"
 			>
-				<FontAwesomeIcon icon={faTwitter} className={styles.socialIcon} />
+				<BlueskyIcon className={styles.socialIcon} />
 			</Link>
 			<Link href="/rss/feed.xml" aria-label="Blog RSS feed" title="RSS Feed">
 				<FontAwesomeIcon icon={faRssSquare} className={styles.socialIcon} />
