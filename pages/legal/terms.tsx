@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Layout from "~/components/Layout/Layout";
 import Meta from "~/components/Meta";
 import config from "~/lib/config";
@@ -293,7 +294,9 @@ export default function Terms() {
 				contact us:
 			</p>
 			<ul>
-				<li>By email: {config.email}</li>
+				<li>
+					Via the <Link href="/contact">contact form</Link>
+				</li>
 			</ul>
 		</Layout>
 	);

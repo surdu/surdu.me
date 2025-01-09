@@ -1,3 +1,5 @@
+@use "~/styles/theme.module";
+
 .contactForm {
 	display: flex;
 }
@@ -10,9 +12,26 @@
 	flex-direction: column;
 	text-align: center;
 	justify-content: center;
-
 }
 
 .form {
 	flex: 1;
+}
+
+@media (max-width: theme.$breakpont-mobile) {
+	.contactForm {
+		flex-direction: column;
+	}
+
+	.intro {
+		padding-bottom: 0;
+
+		h1 {
+			margin-bottom: 0;
+		}
+
+		p {
+			display: none;
+		}
+	}
 }

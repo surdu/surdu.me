@@ -1,3 +1,6 @@
+@use "~/styles/vars";
+@use "~/styles/theme.module";
+
 .formGroup {
     margin-bottom: 1rem;
 }
@@ -5,12 +8,16 @@
 .formControl {
     display: block;
     width: 100%;
-		height: 32px;
-		font-size: 16px;
-		background-color: #fff;
+		height: 3.2rem;
+		font-size: 1.6rem;
+		background-color: var(--alt-bkg-color);
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 5px;
+}
+
+:global(.animated) .formControl {
+  transition: background-color vars.$transitionDuration;
 }
 
 .formControl:focus {
@@ -23,6 +30,7 @@
 
 .textarea {
 		height: 150px;
+		resize: vertical;
 }
 
 .btnPrimary {
