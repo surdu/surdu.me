@@ -59,9 +59,18 @@ export default function Contact() {
 							name="redirectTo"
 							value={`https://${config.domain}/contact/success`}
 						/>
+						<div
+							class="g-recaptcha"
+							data-sitekey="6Lf6PiorAAAAANQ_m7LnpAXz0Fu4HHCen6oyo1Ut"
+						></div>
 						<button type="submit" className={formStyles.btnPrimary}>
 							Send
 						</button>
+						<script
+							src="https://www.google.com/recaptcha/api.js"
+							async
+							defer
+						></script>
 					</form>
 				</div>
 			</div>
