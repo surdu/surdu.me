@@ -4,6 +4,7 @@ import styles from "./Contact.module.scss";
 import Meta from "~/components/Meta";
 import clsx from "clsx";
 import config from "~/lib/config";
+import Script from "next/script";
 
 export default function Contact() {
 	return (
@@ -18,8 +19,14 @@ export default function Contact() {
 					</p>
 				</div>
 				<div className={styles.form}>
+					<Script id="inline-script" strategy="afterInteractive">
+						{`function onSubmit(token) {
+							document.getElementById("contact-form").submit();
+						}`}
+					</Script>
 					<form
 						action="https://api.staticforms.xyz/submit"
+						id="contact-form"
 						method="post"
 						className={formStyles.formGroup}
 					>
@@ -59,18 +66,16 @@ export default function Contact() {
 							name="redirectTo"
 							value={`https://${config.domain}/contact/success`}
 						/>
-						<div
-							className="g-recaptcha"
-							data-sitekey="6Lf6PiorAAAAANQ_m7LnpAXz0Fu4HHCen6oyo1Ut"
-						></div>
-						<button type="submit" className={formStyles.btnPrimary}>
+						<button
+							type="submit"
+							className={clsx(formStyles.btnPrimary, "g-recaptcha")}
+							data-sitekey="6LdRNCwrAAAAAAY-FIOFOtnSznvSu6uZtgLLDOSN"
+							data-callback="onSubmit"
+							data-action="submit"
+						>
 							Send
 						</button>
-						<script
-							src="https://www.google.com/recaptcha/api.js"
-							async
-							defer
-						></script>
+						<Script src="https://www.google.com/recaptcha/api.js" />
 					</form>
 				</div>
 			</div>
